@@ -1,0 +1,9 @@
+# Reporte metodológico
+
+Para abordar la pregunta de investigación se lleva a cabo el Estudio Panel "**Educación y Meritocracia - EDUMER**" entre el año 2023 y 2024, encuestando a estudiantes de enseñanza básica y media y sus profesores y apoderados.
+
+Este informe refiere a la *primera ola* del estudio, llevada a cabo desde octubre de 2023 hasta el mes de mayo de 2024. La base de datos cuenta con un total de 902 casos, en donde se encuentran 902 estudiantes, 180 apoderados y 26 docentes.
+
+El cuestionario EDUMER presenta variables sobre meritocracia, desigualdad, ciudadanía y sociodemográficas. Para efectos de este informe, se presentarán preguntas sobre *creencias en la meritocracia* y *justicia en las notas*, las cuales se dispondrán en el primer gran módulo de Meritocracia (distinguida en su presencia en la sociedad chilena y en el aula); preguntas *actitudinales* y de *participación política*, enmarcadas en el segundo gran módulo de Ciudadanía; y preguntas sociodemográficas del estudiante, que permiten caracterizar el *contexto socioeconómico de la escuela* (nivel educacional máximo alcanzado por el padre y la madre) y el *capital cultural* del mismo (medido por la cantidad de libros presentes en el hogar), así también como su *género* y *curso*.
+
+A continuación, se presentarán análisis descriptivos univariados de las preguntas referidas a las ideas de Meritocriacia y Ciudadanía. Cada sección muestra primero las diferencias entre estudiantes y apoderados, para luego identificar las diferencias entre estudias de básica y media. Finalmente, se muestran diferencias según las características sociodemográficas del estudiante (nivel educacional de los apoderados, género y cantidad de libros en el hogar).

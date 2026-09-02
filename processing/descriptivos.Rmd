@@ -1,0 +1,125 @@
+---
+title: "Descriptivos-Edumer-Ola1"
+output:
+  rmdformats::readthedown:
+    css: color.css
+    highlight: tango
+    code_folding: hide
+    self_contained: true
+    thumbnails: false
+    lightbox: false
+---
+
+Setup
+
+```{r setup}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	results = "asis",
+	message = FALSE,
+	warning = FALSE, 
+	fig.height = 18, 
+	fig.width = 11, 
+	cache = TRUE
+)
+
+options(scipen=9999) # desactivar notacion cientifica
+remove(list = ls()) #limpieza del entorno de trabajo
+```
+
+
+
+```{r}
+if (!require("pacman")) install.packages("pacman") # instalar pacman
+pacman::p_load(haven, dplyr, sjmisc, skimr, pander, knitr, kableExtra, sjlabelled, summarytools, sjmisc, sjPlot)
+
+
+data<- read_sav("input/data/original/170124_BDD_estudiantes.sav")
+```
+
+# Descriptivos
+
+```{r alumnos, echo=TRUE, eval=TRUE}
+#Base General con el cuestionario para estudiantes
+#Codificamos los valores 99-88 como missing para todas las variables
+bbdd_alumnos <- data %>% set_na(., na = c(99, 88))
+
+for (i in names(dplyr::select(bbdd_alumnos, tidyselect::starts_with("p1_"), starts_with("p2_"), starts_with("p8_"), starts_with("p9_"), starts_with("p17_")))) {
+  bbdd_alumnos[[i]] <- sjlabelled::set_labels(
+    x = bbdd_alumnos[[i]],
+    labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo")
+  )
+}
+
+frq(bbdd_alumnos$p1_1)
+
+for (i in names(dplyr::select(bbdd_alumnos, tidyselect::starts_with("p10_")))) {
+  bbdd_alumnos[[i]] <- sjlabelled::set_labels(
+    x = bbdd_alumnos[[i]],
+    labels = c("Nada importante", "Algo importante", "Importante", "Muy importante")
+  )
+}
+
+frq(bbdd_alumnos$p10_1)
+
+for (i in names(dplyr::select(bbdd_alumnos, tidyselect::starts_with("p11_")))) {
+  bbdd_alumnos[[i]] <- sjlabelled::set_labels(
+    x = bbdd_alumnos[[i]],
+    labels = c("Seguro no haré esto", "Tal vez haré esto", "Probablemente haré esto", "Seguro haré esto")
+  )
+}
+
+for (i in names(dplyr::select(bbdd_alumnos, tidyselect::starts_with("p12_")))) {
+  bbdd_alumnos[[i]] <- sjlabelled::set_labels(
+    x = bbdd_alumnos[[i]],
+    labels = c("Si", "No")
+  )
+}
+
+for (i in names(dplyr::select(bbdd_alumnos, tidyselect::starts_with("p13_")))) {
+  bbdd_alumnos[[i]] <- sjlabelled::set_labels(
+    x = bbdd_alumnos[[i]],
+    labels = c("Nunca", "Una vez al año", "Una vez al mes", "Semanalmente", "Todos los días")
+  )
+}
+frq(bbdd_alumnos$p13_1)
+
+for (i in names(dplyr::select(bbdd_alumnos, tidyselect::starts_with("p18_")))) {
+  bbdd_alumnos[[i]] <- sjlabelled::set_labels(
+    x = bbdd_alumnos[[i]],
+    labels = c("Nunca", "Casi nunca", "Casi siempre", "Siempre")
+  )
+}
+
+frq(bbdd_alumnos$p18_1)
+```
+
+# Summarytools
+
+```{r}
+df1 <- bbdd_alumnos %>% #dplyr::select(tidyselect::starts_with("p1")) %>% 
+  dfSummary(.,
+               plain.ascii = FALSE,
+               style = "grid",
+               tmp.img.dir = "/tmp",
+               graph.magnif = 0.75,
+               headings = F,  # encabezado
+               varnumbers = F, # num variable
+               labels.col = T, # etiquetas
+               na.col = T,    # missing
+               graph.col = F, # plot
+               valid.col = T # n valido
+               )
+df1$Variable <- NULL
+print(df1, method = "render")
+```
+
+# Test experimento
+
+```{r}
+sjt.xtab(bbdd_alumnos$aleatorio, bbdd_alumnos$p1_1, encoding = "UTF-8", show.col.prc = TRUE, show.summary = FALSE)
+```
+
+```{r}
+sjt.xtab(bbdd_alumnos$aleatorio, bbdd_alumnos$p1_2, encoding = "UTF-8", show.col.prc = TRUE, show.summary = FALSE)
+```
