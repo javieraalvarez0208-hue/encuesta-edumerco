@@ -7,10 +7,15 @@ format:
 
 # Implementación de la encuesta {#imp-instrument}
 
-
 ## Programación de la encuesta e integración técnica
 
+La encuesta EDUMERCO fue implementada en Formr y estructurada en distintas secciones dentro de la plataforma: `inicio`, `meritocracy`, `vignetas` y `cohesion`. Estas secciones se encuentran vinculadas mediante un identificador de sesión (`session`), que permite asociar las respuestas correspondientes a una misma sesión a lo largo de la encuesta.
+
 ## Trabajo de campo
+
+El trabajo de campo de EDUMERCO se desarrolló entre diciembre de 2024 y enero de 2025, mediante una encuesta en línea dirigida a población adulta residente en Chile.
+
+Durante el levantamiento se generaron registros diferenciados de participantes, encuestas iniciadas y encuestas completadas. Asimismo, se calcularon distribuciones de las encuestas completadas según sexo, edad, nivel educacional y nivel socioeconómico. Para la edad se consideraron los grupos 18–24, 25–34, 35–44, 45–54, 55–64 y 65 años o más.
 
 ## Control de calidad
 
