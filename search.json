@@ -1,0 +1,172 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Manual Metodológico de Encuesta EDUMERCO",
+    "section": "",
+    "text": "Presentación\nEste manual documenta la encuesta Educación, Meritocracia y Cohesión Social (EDUMERCO), realizada en el marco del proyecto “Meritocracia en la escuela: Fundamentos morales del mercado educativo y sus implicancias para la formación ciudadana en Chile” (EDUMER), FONDECYT Regular N.º 1210847, dirigido por Juan Castillo, del Departamento de Sociología de la Universidad de Chile, y financiado por la Agencia Nacional de Investigación y Desarrollo (ANID). EDUMERCO tiene como objetivo analizar las creencias y actitudes sobre la meritocracia, la desigualdad y la cohesión social en la población adulta en Chile.\nEDUMERCO forma parte del mismo proyecto de investigación que el Estudio Panel Educación y Meritocracia (EDUMER), desarrollado con estudiantes de enseñanza básica y media, sus profesores y apoderados. Mientras EDUMER aborda estas problemáticas en el contexto escolar, EDUMERCO extiende su estudio a la población adulta. En particular, las preguntas sobre meritocracia y desigualdad utilizadas en EDUMERCO retoman ítems previamente aplicados en la encuesta a estudiantes de EDUMER, reformulados para su aplicación a población adulta.\nEn términos sustantivos, EDUMERCO aborda tres dimensiones principales: meritocracia, desigualdad y cohesión social. Las preguntas sobre meritocracia distinguen entre factores meritocráticos, asociados principalmente al esfuerzo y el talento, y factores no meritocráticos, como la herencia, los contactos y la suerte, considerando tanto percepciones sobre su funcionamiento en la sociedad como preferencias respecto de estos principios. La dimensión de desigualdad incorpora preguntas sobre percepción de la desigualdad, preferencias redistributivas y justicia de mercado. Por su parte, la dimensión de cohesión social utiliza el instrumento Ideals of Living Together, desarrollado en el marco del German Social Cohesion Panel (SCP) por el Research Institute Social Cohesion (RISC). Este instrumento, probado inicialmente en el estudio piloto del SCP de 2020, está compuesto por doce ítems que recogen distintas concepciones sobre la convivencia en sociedad y que fueron traducidos al español para su aplicación en EDUMERCO.\nLa encuesta EDUMERCO fue realizada entre diciembre de 2024 y enero de 2025, mediante un panel en línea dirigido a personas mayores de 18 años en Chile. El cuestionario fue implementado a través de Formr y contó con la participación de 3.500 personas. El instrumento comprende preguntas de selección y caracterización sociodemográfica, preguntas sobre meritocracia y desigualdad, valores sociales e ideales de cohesión social, además de un componente experimental basado en viñetas.\nEste manual tiene como propósito sistematizar la información metodológica asociada a EDUMERCO y proporcionar la documentación necesaria para comprender y utilizar los datos producidos por el estudio. Para ello, se organiza en las secciones Diseño, Instrumento, Implementación, Bases de datos, Libro de códigos y Apéndice, que documentan el diseño de la encuesta, la composición y procedencia del instrumento y del componente experimental, el proceso de implementación y levantamiento, la construcción y procesamiento de las bases de datos y la estructura de la base final y sus variables.",
+    "crumbs": [
+      "Presentación"
+    ]
+  },
+  {
+    "objectID": "index.html#referencias",
+    "href": "index.html#referencias",
+    "title": "Manual Metodológico de Encuesta EDUMERCO",
+    "section": "Referencias",
+    "text": "Referencias",
+    "crumbs": [
+      "Presentación"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html",
+    "href": "01-diseno.html",
+    "title": "1  Diseño",
+    "section": "",
+    "text": "1.1 Población objetivo y población de la encuesta",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#sec-units",
+    "href": "01-diseno.html#sec-units",
+    "title": "1  Diseño",
+    "section": "1.2 Unidades de análisis y dominios",
+    "text": "1.2 Unidades de análisis y dominios",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#sec-strategy",
+    "href": "01-diseno.html#sec-strategy",
+    "title": "1  Diseño",
+    "section": "1.3 Estrategia de muestreo y selección de la muestra",
+    "text": "1.3 Estrategia de muestreo y selección de la muestra",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#sec-quotas",
+    "href": "01-diseno.html#sec-quotas",
+    "title": "1  Diseño",
+    "section": "1.4 Cuotas y tamaño de la muestra",
+    "text": "1.4 Cuotas y tamaño de la muestra",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#alcance-del-control-de-cuotas",
+    "href": "01-diseno.html#alcance-del-control-de-cuotas",
+    "title": "1  Diseño",
+    "section": "1.5 Alcance del control de cuotas",
+    "text": "1.5 Alcance del control de cuotas",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#restricción-de-factibilidad-conocida-educación-básica",
+    "href": "01-diseno.html#restricción-de-factibilidad-conocida-educación-básica",
+    "title": "1  Diseño",
+    "section": "1.6 Restricción de factibilidad conocida (educación básica)",
+    "text": "1.6 Restricción de factibilidad conocida (educación básica)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#sec-longitudinal",
+    "href": "01-diseno.html#sec-longitudinal",
+    "title": "1  Diseño",
+    "section": "1.7 Diseño longitudinal",
+    "text": "1.7 Diseño longitudinal",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#sec-weighting",
+    "href": "01-diseno.html#sec-weighting",
+    "title": "1  Diseño",
+    "section": "1.8 Ponderación y calibración",
+    "text": "1.8 Ponderación y calibración",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#sec-errors",
+    "href": "01-diseno.html#sec-errors",
+    "title": "1  Diseño",
+    "section": "1.9 Precisión, incertidumbre y errores ajenos al muestreo",
+    "text": "1.9 Precisión, incertidumbre y errores ajenos al muestreo",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "02-instrumento.html",
+    "href": "02-instrumento.html",
+    "title": "2  Instrumento",
+    "section": "",
+    "text": "2.1 Estructura y contenido del cuestionario",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Instrumento</span>"
+    ]
+  },
+  {
+    "objectID": "02-instrumento.html#escalas-de-medición-y-fuentes-de-los-ítems-de-la-encuesta",
+    "href": "02-instrumento.html#escalas-de-medición-y-fuentes-de-los-ítems-de-la-encuesta",
+    "title": "2  Instrumento",
+    "section": "2.2 Escalas de medición y fuentes de los ítems de la encuesta",
+    "text": "2.2 Escalas de medición y fuentes de los ítems de la encuesta",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Instrumento</span>"
+    ]
+  },
+  {
+    "objectID": "03-implementacion.html",
+    "href": "03-implementacion.html",
+    "title": "3  Implementación",
+    "section": "",
+    "text": "4 ## Programación de la encuesta e integración técnica\n## Trabajo de campo\n## Control de calidad\n## Indicadores de desempeño del trabajo de campo",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Implementación</span>"
+    ]
+  },
+  {
+    "objectID": "04-base-datos.html",
+    "href": "04-base-datos.html",
+    "title": "4  Base de datos",
+    "section": "",
+    "text": "4.1 Archivos de datos y estructura de archivos",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Base de datos</span>"
+    ]
+  },
+  {
+    "objectID": "04-base-datos.html#sec-bases",
+    "href": "04-base-datos.html#sec-bases",
+    "title": "4  Base de datos",
+    "section": "4.2 Acceso a los datos y condiciones de uso",
+    "text": "4.2 Acceso a los datos y condiciones de uso",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Base de datos</span>"
+    ]
+  },
+  {
+    "objectID": "05-libro-codigos.html",
+    "href": "05-libro-codigos.html",
+    "title": "5  Libro de códigos",
+    "section": "",
+    "text": "5.1 Instrucciones",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Libro de códigos</span>"
+    ]
+  }
+]
