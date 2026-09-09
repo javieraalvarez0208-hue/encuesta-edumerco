@@ -1,0 +1,976 @@
+# Meritocracia
+
+```{r, data,echo=FALSE, include=FALSE}
+pacman::p_load(dplyr, sjPlot, stargazer, kableExtra, texreg, haven, sjlabelled, ggplot2, summarytools, ggtext, ggpubr, hrbrthemes, tidyr, stringr)
+
+load("input/data/proc/data_proc.RData")
+
+```
+
+```{r, preparacion, echo=FALSE, eval=TRUE}
+#Base General con el cuestionario para estudiantes
+
+for (i in names(dplyr::select(proc_data, tidyselect::starts_with("merit_"), des_01, des_02, des_03, des_07, des_08, des_09, des_10, des_11, des_12))) {
+  proc_data[[i]] <- sjlabelled::set_labels(
+    x = proc_data[[i]],
+    labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo")
+  )
+}
+
+
+for (i in names(dplyr::select(proc_data, carac_a13, carac_a14,carac_a15,carac_a16))) {
+  proc_data[[i]] <- sjlabelled::set_labels(
+    x = proc_data[[i]],
+    labels = c("No", "Si")
+  )
+}
+
+for (i in names(dplyr::select(proc_data, des_06))) {
+  proc_data[[i]] <- sjlabelled::set_labels(
+    x = proc_data[[i]],
+    labels = c("Nada a la cuenta individual, todo al fondo solidario", "", "", "", "", "", "Todo a la cuenta individual, nada al fondo solidario")
+  )
+}
+```
+
+El concepto de **meritocracia** se originó en la novela distópica *The Rise of Meritocracy* [-@young_rise_1958] del sociólogo Michael Young. En este contexto, la meritocracia se refiere a un sistema de organización social en el que se otorga mayor poder, estatus y prestigio a aquellos individuos que poseen más mérito, definido como una combinación de esfuerzo y talento. Este concepto implica que los bienes y las recompensas se distribuyen de manera proporcional al esfuerzo y al talento de cada individuo, siguiendo el principio distributivo de justicia por equidad o igualdad proporcional. Sin embargo, los críticos argumentan que la meritocracia no siempre cumple con su propósito inicial y, en la práctica, se utiliza para ocultar y legitimar desigualdades y privilegios que no están necesariamente vinculados al esfuerzo o al talento.
+
+Para poder investigar la meritocracia vamos a establecer dos distinciones principales. La primera es estructurar este módulo en dos apartados: **meritocracia en la sociedad** y **Factores no meritocráticos**. Dentro de cada una de estas secciones se observará la meritocracia a través de las *creencias de las/los personas*. La segunda distinción ocurre al interior de dichas creencias, donde es posible distinguir dos tipos: **Percepciones**, donde nos referimos a cómo las personas visualizacn en la sociedad el cumplimiento de los principios meritocráticos (*lo que es*) y **preferencias**, que refieren al apoyo a ideales normativos (*lo que debería ser*).
+
+Esta sección se dividirá en dos grandes creencias: percepciones y preferencias. Al interior de cada una, se describirán preguntas del cuestionario que hacen alusión a criterios de mérito individual.
+
+## Percepciones de meritocracia
+
+```{r, dona-esfuerzo-percep, echo=FALSE}
+
+# grafico dona: esfuerzo y estudiantes 
+
+merit_esfuerzo_percep = round(prop.table(table(categorias=proc_data$merit_01)),2)
+merit_esfuerzo_percep = as.data.frame(merit_esfuerzo_percep)
+merit_esfuerzo_percep$categorias <- factor(merit_esfuerzo_percep$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+plot_meritesfuerzo_percep<-ggplot(merit_esfuerzo_percep,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity", 
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+### Esfuerzo en la sociedad chilena
+
+```{r, plot-esfuerzo-percep, echo=FALSE}
+
+# grafico esfuerzo en la sociedad
+
+# Agregar una etiqueta global centrada
+plot_merit_es_percep <- annotate_figure(
+  plot_meritesfuerzo_percep,
+  top = text_grob(
+    "Figura 1.1: En Chile, las personas son recompensadas\npor sus esfuerzos",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+
+plot_merit_es_percep
+```
+
+Las personas están en desacuerdo (Desacuerdo + Muy en desacuerdo) con que en Chile las personas son recompensadas por sus esfuerzos (72%).
+
+*Cruces con características sociodemográficas*
+
+```{r, plot-esfuerzo-sociodemo-percep, echo=FALSE, message=FALSE}
+
+# Calcular las frecuencias originales
+frecuencias_originales <- proc_data %>%
+  pivot_longer(cols = c(screen_sex, screen_education),
+               names_to = "variable",
+               values_to = "categoria") %>%
+  group_by(variable, categoria) %>%
+  summarise(Freq_Original = n(), .groups = 'drop')
+
+# Combinar las frecuencias originales con la base transformada
+proc_data_largo <- proc_data %>%
+  pivot_longer(cols = c(screen_sex, screen_education),
+               names_to = "variable",
+               values_to = "categoria")
+
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_01) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+# nombre facet_wrap
+variable_names <- list("screen_education" = "Nivel educacional",
+                       "screen_sex" = "Sexo")
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_01))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.2: En Chile, las personas son recompensadas por sus esfuerzos"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+
+```
+
+Al analizar la influencia del nivel educacional no se ven diferencias notorias, excepto por un leve aumento en el grado de acuerdo con que en Chile las personas son recompensadas por sus esfuerzos entre quienes tienen educación universitaria o más. 
+
+De la misma forma, también es notorio un aumento en el grado de desacuerdo entre las mujeres (72%) en comparación con los hombres (65%).
+
+### Talento en la sociedad chilena
+
+```{r, dona-talento-ES, echo=FALSE}
+# grafico dona: talento y estudiantes 
+
+merit_talento_percep = round(prop.table(table(categorias=proc_data$merit_02)),2)
+merit_talento_percep = as.data.frame(merit_talento_percep)
+merit_talento_percep$categorias <- factor(merit_talento_percep$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+
+plot_merittalento_percep<-ggplot(merit_talento_percep,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity",
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+```{r, plot-talento-percep, echo=FALSE}
+
+# grafico talento en la sociedad
+
+# Agregar una etiqueta global centrada
+plot_ta_percep <- annotate_figure(
+  plot_merittalento_percep,
+  top = text_grob(
+    "Figura 1.3: En Chile, las personas son recompensadas\npor su inteligencia y habilidad",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+
+plot_ta_percep
+
+```
+
+Las personas están en su mayoría en desacuerdo (Desacuerdo + Muy en desacuerdo) con que en Chile las personas son recompensadas por sus talentos, aunque en menor medida que en relación con el esfuerzo (62% en talento vs 72% en esfuerzo). Por lo tanto, las personas considerarían que, en Chile, el talento es más recompensado que el esfuerzo.
+
+*Cruces con características sociodemográficas*
+
+```{r, plot-talento-sociodemo-percep, echo=FALSE}
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_02) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_02))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.4: En Chile, las personas son recompensadas por su inteligencia y habilidad"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+
+
+```
+
+Al analizar la influencia del nivel educacional nuevamente no se ven diferencias notorias, excepto por un leve aumento en el grado de desacuerdo con que en Chile las personas son recompensadas por sus talentos entre quienes tienen educación universitaria o más y quienes tienen educación técnica superior. 
+
+De la misma forma, también es notorio un mayor grado de desacuerdo entre las mujeres (62%) en comparación con los hombres (57%).
+
+### Merecimiento en la sociedad chilena:
+
+```{r, dona-merito-percep-ES, echo=FALSE}
+
+# grafico dona: merito y estudiantes 
+
+social_merito_percep_ES = round(prop.table(table(categorias=proc_data$merit_10)),2)  
+social_merito_percep_ES = as.data.frame(social_merito_percep_ES) 
+social_merito_percep_ES$categorias <- factor(social_merito_percep_ES$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))  
+plot_socialmerit_percep_ES<-ggplot(social_merito_percep_ES,aes(x=2,y=-Freq, fill=categorias))+   
+  geom_bar(stat = "identity",            
+           color="white")+     
+  geom_text(aes(label = scales::percent(Freq)),             
+            position=position_stack(vjust=0.5),color="black",size=4.5)+  
+  coord_polar(theta = "y")+   
+  scale_fill_brewer(palette = "Blues")+   
+  theme_void()+  
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5) 
+```
+
+```{r, plot-merito-percep, echo=FALSE}
+
+# grafico merito en la sociedad
+
+# Agregar una etiqueta global centrada
+plot_socialmerit_percep <- annotate_figure(
+  plot_socialmerit_percep_ES,
+  top = text_grob(
+    "Figura 1.5: En Chile, todas las personas obtienen\nlo que merecen",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+
+plot_socialmerit_percep
+```
+
+Al analizar este gráfico es mucho más notorio que en las variables anteriores que las personas están en desacuerdo (Desacuerdo + Muy en desacuerdo) con que en Chile las personas obtienen lo que merecen (85%).
+
+*Cruces características sociodemográficas de estudiantes*
+
+```{r, plot-merito-sociodemo-percep, echo=FALSE}
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_10) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_10))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.6: En Chile, todas las personas obtienen lo que merecen"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+
+```
+
+Estas diferencias son transversales a los tres niveles educacionales analizados, pero en mujeres el grado de desacuerdo (84%) es mayor que en los hombres (77%).
+
+### **Oportunidades** en la sociedad chilena:
+
+```{r, dona-oportunidades-ES, echo=FALSE}
+
+# grafico dona: oportunidades y estudiantes
+
+oportunidades_percep_ES = round(prop.table(table(categorias=proc_data$merit_09)),2)
+oportunidades_percep_ES = as.data.frame(oportunidades_percep_ES)
+oportunidades_percep_ES$categorias <- factor(oportunidades_percep_ES$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+plot_oportunidad_percep_ES<-ggplot(oportunidades_percep_ES,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity",
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+```{r, plot-oportunidades, echo=FALSE}
+
+# grafico oportunidades
+
+# Agregar una etiqueta global centrada
+plot_oportunidades_percep <- annotate_figure(
+  plot_oportunidad_percep_ES,
+  top = text_grob(
+    "Figura 1.7: En Chile, todas las personas tienen las mismas oportunidades\npara salir adelante",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+
+plot_oportunidades_percep
+```
+
+Siguiendo la tendencia del gráfico anterior, las personas están en su mayoría en desacuerdo (Desacuerdo + Muy en desacuerdo) con que en Chile todas las personas tienen las mismas oportunidades para salir adelante (84%). 
+
+*Cruces con características sociodemográficas*
+
+```{r, plot-oportunidades-sociodemo, echo=FALSE}
+
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_09) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_09))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.8: En Chile, todas las personas tienen las mismas oportunidades\npara salir adelante"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+```
+
+Al analizar las diferencias por nivel educacional, existe un pequeño aumento en el grado de desacuerdo. Sin embargo, es mucho más notorio el grado de desacuerdo de las mujeres (86%) en comparación con los hombres (78%).
+
+## Preferencias
+
+```{r, dona-esfuerzo-pref-ES, echo=FALSE}
+
+# grafico dona: esfuerzo y estudiantes 
+
+merit_esfuerzo_pref_ES = round(prop.table(table(categorias=proc_data$merit_05)),2)
+merit_esfuerzo_pref_ES = as.data.frame(merit_esfuerzo_pref_ES)
+merit_esfuerzo_pref_ES$categorias <- factor(merit_esfuerzo_pref_ES$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+plot_meritesfuerzo_pref_ES<-ggplot(merit_esfuerzo_pref_ES,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity", 
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+### **Esfuerzo** en la sociedad chilena:
+
+```{r, plot-esfuerzo-pref, echo=FALSE}
+
+# grafico esfuerzo 
+
+# Agregar una etiqueta global centrada
+plot_esfuerzo_pref <- annotate_figure(
+  plot_meritesfuerzo_pref_ES,
+  top = text_grob(
+    "Figura 1.9: Quienes más se esfuerzan\ndeberían obtener mayores recompensas \nque quienes se esfuerzan menos",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+plot_esfuerzo_pref
+```
+
+A diferencia de los gráficos anteriores, este gráfico muestra el cómo las personas creen que *debería ser* la distribución de recompensas. En este caso, la gran mayoría de las personas están de acuerdo (De acuerdo + Muy de acuerdo) con que quienes más se esfuerzan deberían obtener mayores recompensas (92%).
+
+
+*Cruces con características sociodemográficas*
+
+```{r, plot-esfuerzo-pref-sociodemo, echo=FALSE}
+
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_05) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+# nombre facet_wrap
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_05))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.10: Quienes más se esfuerzan deberían obtener mayores recompensas \nque quienes se esfuerzan menos"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+
+```
+
+Al analizar las diferencias por nivel educacional, quienes tienen nivel educacional universitario o más prefieren aún más que quienes se esfuerzan reciban mayores recompensas que las personas con educación técnica superior o educación media o menos. Así mismo, los hombres también están en mayor medida Muy de acuerdo con que quienes se esfuerzan obtengan mayores recompensas en comparación con las mujeres.
+
+### **Talento** en la sociedad chilena:
+
+```{r, dona-talento-pref-ES, echo=FALSE}
+# grafico dona: talento y estudiantes
+
+merit_talento_pref_ES = round(prop.table(table(categorias=proc_data$merit_06)),2)
+merit_talento_pref_ES = as.data.frame(merit_talento_pref_ES)
+merit_talento_pref_ES$categorias <- factor(merit_talento_pref_ES$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+plot_merittalento_pref_ES<-ggplot(merit_talento_pref_ES,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity",
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+```{r, plot-talento-pref, echo=FALSE}
+
+# grafico talento 
+
+# Agregar una etiqueta global centrada
+plot_talento_pref <- annotate_figure(
+  plot_merittalento_pref_ES,
+  top = text_grob(
+    "Figura 1.11: Quienes poseen más talento\ndeberían obtener mayores recompensas\nque quienes poseen menos talento",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+
+plot_talento_pref
+```
+
+A diferencia de lo que pasa con el esfuerzo, al analizar el talento no es tan notorio el consenso con que quienes poseen más talento deberían obtener mayores recompensas, aunque de todas formas es mayor la cantidad de personas que están de acuerdo o muy de acuerdo (73%)
+
+*Cruces con características sociodemográficas*
+
+```{r, plot-talento-pref-sociodemo, echo=FALSE}
+
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_06) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_06))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.12: Quienes poseen más talento deberían obtener mayores recompensas\nque quienes poseen menos talento"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+
+```
+
+Al analizar el nivel educacional, existe una clara tendencia a que las personas con mayor nivel educacional prefieren en mayor medida que quienes poseen más talento reciban mayores recompensas (por ejemplo, 71% de las personas con educación universitaria en comparación con 64% entre quienes tienen educación media o menos). De la misma forma, los hombres (74%) prefieren en mayor medida que las mujeres (62%) que quienes tienen más talento reciban mayores recompensas que quienes poseen más talento.
+
+# Factores no meritocráticos
+
+Estos factores aluden a externalidades del mérito individual como la herencia, los contactos y la suerte. Por ello, se presentan preguntas referidas a la percepción respecto a los logros individuales de las personas que tienen padres ricos y buenos contactos.
+
+## Percepciones no meritocráticas
+
+### Padres ricos en la sociedad chilena:
+
+```{r, dona-padres-ricos-percep-ES, echo=FALSE}
+
+# grafico dona: padres ricos y estudiantes 
+
+padres_ricos_percep_ES = round(prop.table(table(categorias=proc_data$merit_03)),2)
+padres_ricos_percep_ES = as.data.frame(padres_ricos_percep_ES)
+padres_ricos_percep_ES$categorias <- factor(padres_ricos_percep_ES$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+plot_padres_ricos_percep_ES<-ggplot(padres_ricos_percep_ES,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity",
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+
+```{r, plot-padres-ricos-percep, echo=FALSE}
+
+# grafico padres ricos 
+# Agregar una etiqueta global centrada
+plot_padres_ricos_percep <- annotate_figure(
+  plot_padres_ricos_percep_ES,
+  top = text_grob("Figura 1.13: En Chile, quienes tienen padres ricos\nles va mejor en la vida",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+plot_padres_ricos_percep
+
+```
+
+En general, las personas están de acuerdo o muy de acuerdo (88%) con que en Chile quienes tienen padres ricos les va mejor en la vida.
+
+*Cruces con características sociodemográficas*
+
+```{r, plot-padres-ricos-sociodemo-percep, echo=FALSE}
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_03) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_03))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.14: En Chile, quienes tienen padres ricos les va mejor en la vida"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+```
+
+Esta percepción es transveral a todos los niveles educacionales analizados y tampoco se observan diferencias notorias entre hombres y mujeres.
+
+### **Buenos contactos** y logro individual en la sociedad chilena:
+
+```{r, dona-buenos-contactos-percep-ES,echo=FALSE}
+
+# grafico dona: buenos contactos y estudiantes 
+
+buenos_contactos_percep_ES = round(prop.table(table(categorias=proc_data$merit_04)),2)
+buenos_contactos_percep_ES = as.data.frame(buenos_contactos_percep_ES)
+buenos_contactos_percep_ES$categorias <- factor(buenos_contactos_percep_ES$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+plot_contactos_percep_ES<-ggplot(buenos_contactos_percep_ES,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity",
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+```{r, plot-buenos-contactos-percep, echo=FALSE}
+
+# grafico buenos contactos 
+
+# Agregar una etiqueta global centrada
+plot_contactos_percep <- annotate_figure(
+  plot_contactos_percep_ES,
+  top = text_grob(
+    "Figura 1.15: En Chile, quienes tienen buenos contactos\nles va mejor en la vida",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+
+plot_contactos_percep
+```
+
+Siguiendo la tendencia anterior, las personas también están de acuerdo o muy de acuerdo (94%) con que quienes tienen buenos contactos les va mejor en la vida.
+
+*Cruce con características sociodemográficas*
+
+```{r, plot-buenos-contactos-sociodemo-percep, echo=FALSE}
+
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_04) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_04))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.16: En Chile, quienes tienen buenos contactos les va mejor en la vida"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+
+```
+
+Al analizar el nivel educacional de los encuestados, se observa que las personas con educación universitaria o más están en mayor medida muy de acuerdo (61%) que las personas con menos nivel educacional con que quienes tienen buenos contactos les va mejor en la vida. Sin embargo, no se observan diferencias notorias entre hombres y mujeres.
+
+
+## Preferencias no meritocráticas
+
+Estos factores aluden a externalidades del mérito individual como la herencia, los contactos y la suerte. Por ello, se presentan preguntas referidas a la preferencia respecto a los logros individuales de las personas que tienen padres ricos, buenos contactos.
+
+### **Padres ricos**
+
+```{r, dona-padres-ricos-pref-ES, echo=FALSE}
+
+# grafico dona: padres ricos y estudiantes
+
+padres_ricos_pref_ES = round(prop.table(table(categorias=proc_data$merit_07)),2)
+padres_ricos_pref_ES = as.data.frame(padres_ricos_pref_ES)
+padres_ricos_pref_ES$categorias <- factor(padres_ricos_pref_ES$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+plot_padres_ricos_pref_ES<-ggplot(padres_ricos_pref_ES,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity", 
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+```{r, plot-padres-ricos-pref, echo=FALSE}
+
+# graficos padres ricos 
+
+# Agregar una etiqueta global centrada
+plot_padres_ricos_pref <- annotate_figure(
+  plot_padres_ricos_pref_ES,
+  top = text_grob(
+    "Figura 1.17: Está bien que quienes tienen padres ricos\nles vaya bien en la vida",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+
+plot_padres_ricos_pref
+```
+
+Al preguntarle a los encuestados sobre si está bien que quienes tienen padres ricos les vaya mejor en la vida, no existe un consenso entre los participantes ya que un 50% está de acuerdo o muy de acuerdo y el otro 50% está en desacuerdo o muy en desacuerdo. De todas formas, si analizamos las dos categorías extremas, es mayor el grado que está muy en desacuerdo (15%) que los que están muy de acuerdo (7%).
+
+*Cruces con características sociodemográficas*
+
+```{r, plot-padres-ricos-pref-sociodemo, echo=FALSE}
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_07) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_07))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.18: Está bien que quienes tienen padres ricos les vaya bien en la vida"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+
+```
+
+En este gráfico no se observan diferencias notorias según nivel educacional, pero sí se puede observar un menor grado de acuerdo en mujeres que en los hombres con que está bien que las personas con padres ricos les vaya mejor en la vida (42% en las mujeres en comparación con el 48% de los hombres)
+
+### **Buenos contactos**
+
+```{r, dona-buenos-contactos-pref-ES, echo=FALSE}
+
+# grafico dona: buenos contactos y estudiantes 
+
+buenos_contactos_pref_ES = round(prop.table(table(categorias=proc_data$merit_08)),2)
+buenos_contactos_pref_ES = as.data.frame(buenos_contactos_pref_ES)
+buenos_contactos_pref_ES$categorias <- factor(buenos_contactos_pref_ES$categorias, levels = c(1, 2, 3, 4), labels = c("Muy en desacuerdo", "Desacuerdo", "De acuerdo", "Muy de acuerdo"))
+plot_buenos_contactos_pref_ES<-ggplot(buenos_contactos_pref_ES,aes(x=2,y=-Freq, fill=categorias))+
+  geom_bar(stat = "identity", 
+           color="white")+
+    geom_text(aes(label = scales::percent(Freq)),
+              position=position_stack(vjust=0.5),color="black",size=4.5)+
+  coord_polar(theta = "y")+
+  scale_fill_brewer(palette = "Blues")+
+    theme_void()+
+  theme(legend.title = element_blank(),
+    plot.title = element_text(size=12, face="bold", hjust=0.5))+
+  xlim(0.5,2.5)
+```
+
+```{r, plot-buenos-contactos-pref, echo=FALSE}
+
+# grafico buenos contactos 
+
+# Agregar una etiqueta global centrada
+plot_buenos_contactos_pref <- annotate_figure(
+  plot_buenos_contactos_pref_ES,
+  top = text_grob(
+    "Figura 1.19: Está bien que quienes tienen buenos contactos\nles vaya bien en la vida",
+    size = 12, 
+    face = "italic", 
+    color = "black",
+    hjust = 0.5))
+
+
+plot_buenos_contactos_pref
+```
+
+Siguiendo con las preferencias no meritocráticas, al analizar si está bien que las personas con buenos contactos les vaya mejor en la vida la tendencia es similar, aunque es mayor la cantidad de personas que están muy en desacuerdo o desacuerdo (55%) que los que están de acuerdo o muy de acuerdo.
+
+*Cruces con características sociodemográficas*
+
+```{r, plot-buenos-contactos-pref-sociodemo, echo=FALSE}
+
+frecuencias <- proc_data_largo %>%
+  group_by(variable, categoria, merit_08) %>%
+  summarise(Freq = n(), .groups = 'drop') %>%
+  left_join(frecuencias_originales, by = c("variable", "categoria")) %>%
+  mutate(Porcentaje = Freq / Freq_Original) %>%
+  ungroup() %>% 
+  na.omit()
+
+variable_labeller <- function(variable, value){return(variable_names[value])}
+
+# Ajustar las etiquetas largas
+frecuencias$categoria <- str_wrap(frecuencias$categoria, width = 10)
+
+# Crear la gráfica
+ggplot(frecuencias, aes(x = categoria, y = Porcentaje, fill = factor(merit_08))) +
+  geom_bar(stat = "identity", position = "fill", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", labeller = as_labeller(variable_labeller)) +
+  geom_text(aes(label = scales::percent(Porcentaje, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), color = "black", size = 4.5) +
+  labs(
+    x = NULL, # Elimina el título del eje x
+    y = NULL, # Elimina el título del eje y
+    fill = "Grado de acuerdo",
+    title = "Figura 1.20: Está bien que quienes tienen buenos contactos les vaya bien en la vida"
+  ) +
+  theme_blank() +
+  theme(
+    axis.text.y = element_blank(),  # Ocultar etiquetas del eje y
+    axis.ticks.y = element_blank(), # Ocultar marcas del eje y
+    axis.title.x = element_blank(), # Ocultar título del eje x
+    axis.title.y = element_blank(), # Ocultar título del eje y
+    strip.text = element_text(size = 9, face = "bold"), # Ajustar tamaño y estilo del título de las facetas
+    axis.text.x = element_text(size = 9), # Ajustar el tamaño de las etiquetas del eje x
+    legend.position = "bottom",# Colocar la leyenda en la parte inferior
+     plot.title = element_text(size = 12, face = "italic", color = "black")
+  ) +
+  scale_fill_brewer(palette = "Blues", 
+                    labels = c("1" = "Muy en desacuerdo", "2" = "En desacuerdo", 
+                               "3" = "De acuerdo", "4" = "Muy de acuerdo"),
+                    name = NULL)
+```
+
+Esta tendencia es transveral a todos los niveles educacionales, y existe una pequeña diferencia entre hombres y mujeres. El grado de desacuerdo o muy en desacuerdo es mayor entre las mujeres (53%) que en los hombres (49%).
