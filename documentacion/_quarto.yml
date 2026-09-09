@@ -15,17 +15,16 @@ book:
   #favicon: images/logo-sogedi.png
   repo-url: https://jus-mer.com/
   repo-branch: main
+  
   chapters:
-    - index.qmd
-    - 01-antecedentes.qmd
-    - 02-diseno-encuesta.qmd
-    - 03-diseno-experimento.qmd
-    - 04-diseno-items.qmd
-    - 05-implementacion-encuesta.qmd
-    - 06-base-datos.qmd
-    - 07-etica.qmd
-    - 08-libro-codigos.qmd
-    - 09-apendice.qmd
+  - index.qmd
+  - 01-diseno.qmd
+  - 02-instrumento.qmd
+  - 03-implementacion.qmd
+  - 04-base-datos.qmd
+  - 05-libro-codigos.qmd
+  - 06-apendice.qmd
+
     
   search:
     location: sidebar

@@ -5,10 +5,9 @@ format:
     css: justify.css
 ---
 
-# Implementación de la encuesta {#imp-instrument}
+# Implementación  {#imp-instrument}
 
-
-## Programación de la encuesta e integración técnica
+# ## Programación de la encuesta e integración técnica
 
 ## Trabajo de campo
 

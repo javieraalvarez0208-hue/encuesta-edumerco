@@ -1,8 +1,0 @@
----
-format:
-  html:
-    toc: true
-    css: justify.css
----
-
-# Diseño del cuestionario A (experimento): {#sec-conjoint}

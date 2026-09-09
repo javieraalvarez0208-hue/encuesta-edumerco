@@ -5,7 +5,7 @@ format:
     css: justify.css
 ---
 
-# Diseño del cuestionario B: Ítems {#sec-items}
+# Instrumento {#sec-items}
 
 ## Estructura y contenido del cuestionario
 

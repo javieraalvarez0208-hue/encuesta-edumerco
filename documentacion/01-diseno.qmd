@@ -5,7 +5,7 @@ format:
     css: justify.css
 ---
 
-# Diseño de la encuesta {#sec-estadis}
+# Diseño {#sec-estadis}
 
 ## Población objetivo y población de la encuesta {#sec-target}
 
