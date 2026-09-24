@@ -173,7 +173,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#programación-de-la-encuesta-e-integración-técnica" id="toc-programación-de-la-encuesta-e-integración-técnica" class="nav-link active" data-scroll-target="#programación-de-la-encuesta-e-integración-técnica"><span class="header-section-number">4</span> ##&nbsp;Programación de la encuesta e integración técnica</a></li>
+  <li><a href="#programación-y-aplicación-de-la-encuesta" id="toc-programación-y-aplicación-de-la-encuesta" class="nav-link active" data-scroll-target="#programación-y-aplicación-de-la-encuesta"><span class="header-section-number">3.1</span> Programación y aplicación de la encuesta</a></li>
+  <li><a href="#trabajo-de-campo" id="toc-trabajo-de-campo" class="nav-link" data-scroll-target="#trabajo-de-campo"><span class="header-section-number">3.2</span> Trabajo de campo</a></li>
+  <li><a href="#integración-y-procesamiento-de-las-bases" id="toc-integración-y-procesamiento-de-las-bases" class="nav-link" data-scroll-target="#integración-y-procesamiento-de-las-bases"><span class="header-section-number">3.3</span> Integración y procesamiento de las bases</a></li>
+  <li><a href="#controles-de-procesamiento" id="toc-controles-de-procesamiento" class="nav-link" data-scroll-target="#controles-de-procesamiento"><span class="header-section-number">3.4</span> Controles de procesamiento</a></li>
+  <li><a href="#indicadores-de-desempeño-del-trabajo-de-campo" id="toc-indicadores-de-desempeño-del-trabajo-de-campo" class="nav-link" data-scroll-target="#indicadores-de-desempeño-del-trabajo-de-campo"><span class="header-section-number">3.5</span> Indicadores de desempeño del trabajo de campo</a></li>
   </ul>
 </nav>
     </div>
@@ -199,11 +203,66 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="programación-de-la-encuesta-e-integración-técnica" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> ##&nbsp;Programación de la encuesta e integración técnica</h1>
-<p>##&nbsp;Trabajo de campo</p>
-<p>##&nbsp;Control de calidad</p>
-<p>##&nbsp;Indicadores de desempeño del trabajo de campo</p>
+<section id="programación-y-aplicación-de-la-encuesta" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="programación-y-aplicación-de-la-encuesta"><span class="header-section-number">3.1</span> Programación y aplicación de la encuesta</h2>
+<p>La encuesta de EDUMERCO Adultos fue programada y administrada mediante la plataforma formr, utilizada para implementar el cuestionario en línea y registrar las respuestas. La aplicación se organizó en distintos componentes correspondientes a las principales secciones del instrumento: <code>inicio</code>, <code>meritocracy</code>, <code>vignetas</code> y <code>cohesion</code>.</p>
+<p>La aplicación correspondió a una encuesta autoadministrada en línea. La participación se realizó mediante el panel de Netquest, mientras que formr fue utilizado para la presentación del cuestionario, el registro de las respuestas y la administración de los distintos componentes de la encuesta.</p>
+</section>
+<section id="trabajo-de-campo" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="trabajo-de-campo"><span class="header-section-number">3.2</span> Trabajo de campo</h2>
+<p>El levantamiento de EDUMERCO Adultos se realizó mediante un panel en línea administrado por Netquest. La población elegible correspondió a personas de 18 años o más residentes en Chile.</p>
+<p>El trabajo de campo se desarrolló entre diciembre de 2024 y enero de 2025, y el levantamiento fue cerrado el 28 de enero de 2025. El tamaño muestral previsto fue de 3.500 casos.</p>
+<p>Durante el levantamiento se realizó un seguimiento de las cuotas muestrales por sexo, edad, nivel educacional y nivel socioeconómico. Este seguimiento registraba los casos acumulados y los casos faltantes respecto de cada categoría y era utilizado para orientar el cierre de las cuotas durante el trabajo de campo.</p>
+</section>
+<section id="integración-y-procesamiento-de-las-bases" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="integración-y-procesamiento-de-las-bases"><span class="header-section-number">3.3</span> Integración y procesamiento de las bases</h2>
+<p>Una vez finalizado el levantamiento, los resultados de los distintos componentes de formr fueron extraídos y posteriormente integrados en R. La vinculación de los registros se realizó mediante la variable <code>session</code>, utilizada como identificador común para reunir en una misma base la información proveniente de las distintas partes del cuestionario.</p>
+<p>Como parte del procesamiento inicial se eliminaron variables y registros técnicos asociados al funcionamiento de la plataforma y se excluyeron los casos utilizados para pruebas de programación. La exclusión de estos casos se realizó mediante una lista explícita de identificadores de prueba incorporada al script de procesamiento.</p>
+<p>Posteriormente, se definieron distintos estados de participación a partir de variables observables en la base. Los participantes fueron identificados mediante la presencia de <code>pid</code>; los cuestionarios iniciados, mediante la presencia de <code>start_01</code>; y los cuestionarios completos, mediante la presencia de <code>cohesion_12</code>.</p>
+<p>La última versión disponible de la base integrada utilizada para este manual, <code>completas-280125.RData</code>, contiene 3.484 casos y 526 variables.</p>
+</section>
+<section id="controles-de-procesamiento" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="controles-de-procesamiento"><span class="header-section-number">3.4</span> Controles de procesamiento</h2>
+<p>El procesamiento de la información incluyó procedimientos destinados a verificar la correcta integración de los componentes de la encuesta y a identificar registros que no correspondían a respuestas válidas del levantamiento.</p>
+<p>En primer lugar, se excluyeron los registros asociados a identificadores utilizados para pruebas de programación y funcionamiento de la encuesta. En segundo lugar, se verificó la integración de los distintos componentes mediante la variable <code>session</code>. Finalmente, se distinguieron los cuestionarios iniciados y completos de acuerdo con los criterios definidos en el procesamiento de la base.</p>
+<p>El script de procesamiento también calculó la duración de respuesta para los casos completos a partir de las variables <code>created</code> y <code>modified</code>. Este indicador permite describir el tiempo transcurrido entre el registro inicial y la última modificación de cada cuestionario.</p>
+</section>
+<section id="indicadores-de-desempeño-del-trabajo-de-campo" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="indicadores-de-desempeño-del-trabajo-de-campo"><span class="header-section-number">3.5</span> Indicadores de desempeño del trabajo de campo</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Indicador</th>
+<th style="text-align: right;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Casos completos en la base final</td>
+<td style="text-align: right;">3.484</td>
+</tr>
+<tr class="even">
+<td>Duración mediana registrada</td>
+<td style="text-align: right;">22,87 minutos</td>
+</tr>
+<tr class="odd">
+<td>Casos con duración superior a 30 minutos</td>
+<td style="text-align: right;">1.116</td>
+</tr>
+<tr class="even">
+<td>Casos con duración superior a 1 hora</td>
+<td style="text-align: right;">460</td>
+</tr>
+<tr class="odd">
+<td>Casos con duración superior a 2 horas</td>
+<td style="text-align: right;">274</td>
+</tr>
+<tr class="even">
+<td>Casos con duración superior a 24 horas</td>
+<td style="text-align: right;">95</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>

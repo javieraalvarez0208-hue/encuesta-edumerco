@@ -4,17 +4,7 @@
     "href": "index.html",
     "title": "Manual Metodológico de Encuesta EDUMERCO",
     "section": "",
-    "text": "Presentación\nEste manual documenta la encuesta Educación, Meritocracia y Cohesión Social (EDUMERCO), realizada en el marco del proyecto “Meritocracia en la escuela: Fundamentos morales del mercado educativo y sus implicancias para la formación ciudadana en Chile” (EDUMER), FONDECYT Regular N.º 1210847, dirigido por Juan Carlos Castillo, del Departamento de Sociología de la Universidad de Chile, y financiado por la Agencia Nacional de Investigación y Desarrollo (ANID). EDUMERCO tiene como objetivo analizar las creencias y actitudes sobre la meritocracia, la desigualdad y la cohesión social en la población adulta en Chile.\nEDUMERCO surge como una extensión del Estudio Panel Educación y Meritocracia (EDUMER), desarrollado con estudiantes de enseñanza básica y media, sus profesores y apoderados. El diseño original del proyecto contemplaba tres olas del estudio panel escolar. Sin embargo, los retrasos en la recolección de datos asociados a la pandemia de COVID-19 desplazaron el inicio del panel a 2023, permitiendo realizar dos olas durante el período de ejecución del proyecto. En este contexto, se incorporó una encuesta adicional a población adulta, orientada a ampliar el estudio de los temas del proyecto y permitir la comparación de actitudes y creencias entre jóvenes y adultos.\nDe esta forma, mientras EDUMER aborda estas problemáticas en el contexto escolar, EDUMERCO extiende su estudio a la población adulta. En particular, las preguntas sobre meritocracia y desigualdad de EDUMERCO retoman ítems previamente aplicados en la encuesta a estudiantes de EDUMER, reformulados para su aplicación a adultos. El instrumento incorpora además preguntas sobre valores e ideales de cohesión social, junto con un componente experimental basado en viñetas.\nEn términos sustantivos, EDUMERCO aborda tres dimensiones principales: meritocracia, desigualdad y cohesión social. Las preguntas sobre meritocracia distinguen entre factores meritocráticos, asociados principalmente al esfuerzo y el talento, y factores no meritocráticos, como la herencia y los contactos, considerando tanto percepciones sobre su funcionamiento en la sociedad como preferencias respecto de estos principios. La dimensión de desigualdad incorpora preguntas relativas a la percepción de la desigualdad, las preferencias redistributivas y la justicia de mercado. Por su parte, la dimensión de cohesión social incorpora una batería de doce ítems sobre distintas concepciones de la convivencia en sociedad, adaptada y traducida directamente del instrumento Ideals of Living Together, desarrollado por el Research Institute Social Cohesion (RISC) en Alemania.\nLa encuesta EDUMERCO fue realizada entre diciembre de 2024 y enero de 2025, mediante un panel en línea dirigido a personas de 18 años o más en Chile. La muestra fue proporcionada por Netquest, mientras que la programación del cuestionario fue realizada por el equipo de investigación mediante Formr. La encuesta contó con la participación de 3.500 personas. El instrumento comprende preguntas de selección y caracterización sociodemográfica, preguntas sobre meritocracia y desigualdad, valores sociales e ideales de cohesión social, además del componente experimental basado en viñetas. La propuesta de muestreo de Netquest establecía cobertura nacional y cuotas según sexo, edad y nivel socioeconómico.\nEste manual tiene como propósito sistematizar la información metodológica asociada a EDUMERCO y proporcionar la documentación necesaria para comprender y utilizar los datos producidos por el estudio. Para ello, se organiza en las secciones Diseño, Instrumento, Implementación, Bases de datos, Libro de códigos y Apéndice, que documentan el diseño de la encuesta, la composición y procedencia del instrumento y del componente experimental, el proceso de implementación y levantamiento, la construcción y procesamiento de las bases de datos y la estructura de la base final y sus variables.",
-    "crumbs": [
-      "Presentación"
-    ]
-  },
-  {
-    "objectID": "index.html#referencias",
-    "href": "index.html#referencias",
-    "title": "Manual Metodológico de Encuesta EDUMERCO",
-    "section": "Referencias",
-    "text": "Referencias",
+    "text": "Presentación\nEste manual documenta la encuesta Educación, Meritocracia y Cohesión Social (EDUMERCO), realizada en el marco del proyecto “Meritocracia en la escuela: Fundamentos morales del mercado educativo y sus implicancias para la formación ciudadana en Chile” (EDUMER), FONDECYT Regular N.º 1210847, dirigido por Juan Carlos Castillo, del Departamento de Sociología de la Universidad de Chile, y financiado por la Agencia Nacional de Investigación y Desarrollo (ANID). EDUMERCO tiene como objetivo estudiar las creencias y actitudes sobre meritocracia, desigualdad y cohesión social en la población adulta en Chile.\nEDUMERCO surge como una extensión del Estudio Panel Educación y Meritocracia (EDUMER), desarrollado con estudiantes de enseñanza básica y media, sus profesores y apoderados. El diseño original del proyecto contemplaba tres olas del estudio panel escolar, sin embargo, los retrasos en la recolección de datos asociados a la pandemia de COVID-19 desplazaron el inicio del panel a 2023, permitiendo realizar dos olas durante el período de ejecución del proyecto. En este contexto, se incorporó una encuesta a población adulta, orientada a ampliar el estudio de los temas centrales del proyecto y permitir la comparación de actitudes y creencias entre jóvenes y adultos.\nEl cuestionario de EDUMERCO se estructuró en seis módulos temáticos. Los módulos de caracterización sociodemográfica, meritocracia y actitudes hacia la desigualdad fueron desarrollados por el equipo de investigación del proyecto. Adicionalmente, el instrumento incorporó un experimento factorial basado en viñetas, una batería de valores sociales y una escala de ideales de convivencia social. Estos componentes fueron elaborados o adaptados a partir de instrumentos utilizados por el Research Institute Social Cohesion (RISC, Alemania), en el contexto de una colaboración académica orientada a la utilización de herramientas comparables para el estudio de la cohesión social.\nEl componente experimental basado en viñetas fue desarrollado mediante un trabajo conjunto entre investigadores de COES y del equipo asociado al RISC y la Universidad de Bremen. La batería de valores sociales corresponde a una adaptación de la escala de Valores Humanos Básicos de Shalom Schwartz (PVQ-21), mientras que la batería sobre ideales de convivencia social fue incorporada a partir del instrumento Ideals for Living Together, empleado en el Social Cohesion Panel del RISC\nLa encuesta EDUMERCO fue realizada entre diciembre de 2024 y enero de 2025 mediante un panel en línea dirigido a personas de 18 años o más residentes en Chile. La muestra fue proporcionada por Netquest, mientras que la programación y administración del cuestionario fueron implementadas por el equipo de investigación utilizando la plataforma Formr. El diseño contempló un tamaño muestral de 3.500 casos y cobertura nacional, con cuotas de sexo, edad y nivel socioeconómico. Durante el levantamiento se incorporó además el nivel educacional como una cuota adicional. La base final disponible contiene 3.484 casos.\nEste manual tiene como propósito sistematizar la información metodológica asociada a EDUMERCO y proporcionar la documentación necesaria para comprender y utilizar los datos producidos por el estudio. Para ello, se organiza en las secciones Diseño, Instrumento, Implementación, Bases de datos, Libro de códigos y Apéndice, que documentan el diseño de la encuesta, la composición y procedencia del instrumento y del componente experimental, el proceso de levantamiento, la construcción y procesamiento de las bases de datos y la estructura final de las variables.",
     "crumbs": [
       "Presentación"
     ]
@@ -24,7 +14,7 @@
     "href": "01-diseno.html",
     "title": "1  Diseño",
     "section": "",
-    "text": "1.1 Población objetivo y población de la encuesta",
+    "text": "1.1 Población objetivo y población de la encuesta\nEsta sección describe las principales características del diseño muestral de EDUMERCO, incluyendo la población objetivo, la estrategia de selección de participantes, las cuotas utilizadas durante el levantamiento, el tamaño de la muestra, los procedimientos de control aplicados durante el trabajo de campo y los aspectos éticos de la encuesta.\nLa población objetivo de EDUMERCO corresponde a personas de 18 años o más residentes en Chile. La encuesta fue diseñada con cobertura nacional y dirigida a población general, considerando los niveles socioeconómicos ABC1, C2, C3 y DE, de acuerdo con la clasificación AIM 2022.\nLa población de la encuesta corresponde al subconjunto de la población objetivo accesible a través del panel en línea de Netquest durante el período de levantamiento. En consecuencia, la cobertura efectiva del estudio se encuentra delimitada por las personas pertenecientes al panel que cumplían con los criterios de elegibilidad definidos para el estudio.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
     ]
@@ -34,7 +24,7 @@
     "href": "01-diseno.html#sec-units",
     "title": "1  Diseño",
     "section": "1.2 Unidades de análisis y dominios",
-    "text": "1.2 Unidades de análisis y dominios",
+    "text": "1.2 Unidades de análisis y dominios\nLa unidad de observación y de información corresponde a cada persona de 18 años o más que respondió individualmente el cuestionario. La unidad de análisis corresponde igualmente a las personas adultas estudiadas por EDUMERCO.\nEl estudio fue diseñado con cobertura nacional y no se definieron dominios territoriales específicos de estimación. Por lo tanto, el diseño no contempla estimaciones independientes para regiones u otras subdivisiones territoriales.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
     ]
@@ -44,7 +34,7 @@
     "href": "01-diseno.html#sec-strategy",
     "title": "1  Diseño",
     "section": "1.3 Estrategia de muestreo y selección de la muestra",
-    "text": "1.3 Estrategia de muestreo y selección de la muestra",
+    "text": "1.3 Estrategia de muestreo y selección de la muestra\nEDUMERCO utilizó una muestra no probabilística mediante un panel en línea administrado por Netquest. Las personas participantes fueron seleccionadas entre integrantes elegibles del panel y accedieron al cuestionario mediante la infraestructura de integración entre el proveedor de la muestra y la encuesta en línea.\nEl diseño contempló el control de la composición de la muestra mediante cuotas sociodemográficas.\nLos criterios generales de elegibilidad correspondieron a personas de 18 años o más residentes en Chile.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
     ]
@@ -54,7 +44,7 @@
     "href": "01-diseno.html#sec-quotas",
     "title": "1  Diseño",
     "section": "1.4 Cuotas y tamaño de la muestra",
-    "text": "1.4 Cuotas y tamaño de la muestra",
+    "text": "1.4 Cuotas y tamaño de la muestra\nEl diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas sociodemográficas. Las categorías y proporciones objetivo fueron las siguientes:\nEl diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas de sexo, edad y nivel socioeconómico. Las categorías y proporciones objetivo fueron las siguientes:\n\n\n\n\nTable 1.1: Cuotas muestrales de EDUMERCO\n\n\n\n\n\n\nVariable\nCategoría\nN\n%\n\n\n\n\nSexo\nHombre\n1712\n48.9\n\n\nSexo\nMujer\n1788\n51.1\n\n\nEdad\n18–24 años\n476\n13.6\n\n\nEdad\n25–34 años\n745\n21.3\n\n\nEdad\n35–44 años\n637\n18.2\n\n\nEdad\n45–54 años\n630\n18.0\n\n\nEdad\n55–64 años\n511\n14.6\n\n\nEdad\n65 años o más\n501\n14.3\n\n\nNivel socioeconómico\nABC1\n455\n13.0\n\n\nNivel socioeconómico\nC2\n420\n12.0\n\n\nNivel socioeconómico\nC3\n875\n25.0\n\n\nNivel socioeconómico\nDE\n1750\n50.0\n\n\n\n\n\n\n\n\nEl tamaño muestral previsto para el levantamiento fue de 3.500 entrevistas. La base final disponible, correspondiente a completas-280125.RData contiene 3.484 casos.\nDurante el trabajo de campo se incorporó además el nivel educacional como una cuota adicional, cuyo cumplimiento fue objeto de seguimiento operativo.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
     ]
@@ -64,27 +54,7 @@
     "href": "01-diseno.html#alcance-del-control-de-cuotas",
     "title": "1  Diseño",
     "section": "1.5 Alcance del control de cuotas",
-    "text": "1.5 Alcance del control de cuotas",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
-    ]
-  },
-  {
-    "objectID": "01-diseno.html#restricción-de-factibilidad-conocida-educación-básica",
-    "href": "01-diseno.html#restricción-de-factibilidad-conocida-educación-básica",
-    "title": "1  Diseño",
-    "section": "1.6 Restricción de factibilidad conocida (educación básica)",
-    "text": "1.6 Restricción de factibilidad conocida (educación básica)",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
-    ]
-  },
-  {
-    "objectID": "01-diseno.html#sec-longitudinal",
-    "href": "01-diseno.html#sec-longitudinal",
-    "title": "1  Diseño",
-    "section": "1.7 Diseño longitudinal",
-    "text": "1.7 Diseño longitudinal",
+    "text": "1.5 Alcance del control de cuotas\nDurante el levantamiento se realizó un seguimiento de las cuotas mediante el registro de los casos acumulados y de los casos faltantes para cada categoría. Esta información era reportada a Netquest para orientar el cierre de las cuotas durante el trabajo de campo.\nAdemás, en el procesamiento de la base se revisó la distribución de los casos según sexo, edad, nivel educacional y nivel socioeconómico mediante el cálculo de frecuencias.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
     ]
@@ -93,8 +63,8 @@
     "objectID": "01-diseno.html#sec-weighting",
     "href": "01-diseno.html#sec-weighting",
     "title": "1  Diseño",
-    "section": "1.8 Ponderación y calibración",
-    "text": "1.8 Ponderación y calibración",
+    "section": "1.6 Ponderación y calibración",
+    "text": "1.6 Ponderación y calibración\nNo se aplicaron procedimientos de ponderación ni calibración a la base final de EDUMERCO.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
     ]
@@ -103,8 +73,18 @@
     "objectID": "01-diseno.html#sec-errors",
     "href": "01-diseno.html#sec-errors",
     "title": "1  Diseño",
-    "section": "1.9 Precisión, incertidumbre y errores ajenos al muestreo",
-    "text": "1.9 Precisión, incertidumbre y errores ajenos al muestreo",
+    "section": "1.7 Precisión, incertidumbre y errores ajenos al muestreo",
+    "text": "1.7 Precisión, incertidumbre y errores ajenos al muestreo\nEDUMERCO utilizó una muestra no probabilística obtenida mediante un panel en línea, por lo que las unidades de la población objetivo no tienen probabilidades conocidas de inclusión. En consecuencia, los resultados no se interpretan bajo los supuestos de un diseño probabilístico ni se les atribuye un margen de error muestral basado en el muestreo aleatorio simple.\nEntre las principales fuentes de incertidumbre asociadas al diseño se encuentran la cobertura del panel, la participación y no respuesta de sus integrantes y los posibles errores de medición propios de una encuesta autoadministrada por internet.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
+    ]
+  },
+  {
+    "objectID": "01-diseno.html#ética",
+    "href": "01-diseno.html#ética",
+    "title": "1  Diseño",
+    "section": "1.8 Ética",
+    "text": "1.8 Ética\nEDUMERCO se desarrolló en el marco del proyecto FONDECYT Regular N.º 1210847, cuyo protocolo de investigación fue sometido a revisión por el Comité de Ética de la Investigación de la Facultad de Ciencias Sociales de la Universidad de Chile. La encuesta a población adulta correspondió a una modificación del estudio original, para la cual se actualizaron los antecedentes y documentos asociados al proyecto.\nEn diciembre de 2024, mediante la Carta N.º 54-2024, el Comité de Ética aprobó las modificaciones asociadas a la encuesta de población adulta. Estas incluyeron el cambio de denominación de la encuesta a “Educación, meritocracia y cohesión social”, la incorporación de una nueva fuente de financiamiento asociada a COES y el nuevo documento de consentimiento informado para la participación de personas adultas. El Comité señaló que estas modificaciones no implicaban cambios en los objetivos ni en el nivel de riesgo del proyecto.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Diseño</span>"
     ]
@@ -114,17 +94,17 @@
     "href": "02-instrumento.html",
     "title": "2  Instrumento",
     "section": "",
-    "text": "2.1 Estructura y contenido del cuestionario",
+    "text": "2.1 Consentimiento Informado\nLa participación en EDUMERCO Adultos estuvo precedida por un procedimiento de consentimiento informado incorporado a la aplicación en línea. Este documento informó sobre los objetivos del estudio, las características y voluntariedad de la participación, el tratamiento confidencial de la información y las condiciones de participación. El consentimiento debía ser aceptado antes de acceder al cuestionario.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Instrumento</span>"
     ]
   },
   {
-    "objectID": "02-instrumento.html#escalas-de-medición-y-fuentes-de-los-ítems-de-la-encuesta",
-    "href": "02-instrumento.html#escalas-de-medición-y-fuentes-de-los-ítems-de-la-encuesta",
+    "objectID": "02-instrumento.html#módulo-de-preguntas",
+    "href": "02-instrumento.html#módulo-de-preguntas",
     "title": "2  Instrumento",
-    "section": "2.2 Escalas de medición y fuentes de los ítems de la encuesta",
-    "text": "2.2 Escalas de medición y fuentes de los ítems de la encuesta",
+    "section": "2.2 Módulo de preguntas",
+    "text": "2.2 Módulo de preguntas\nEl instrumento de recolección consiste en un cuestionario estructurado dirigido a personas de 18 años o más residentes en Chile. El cuestionario aborda distintas dimensiones relacionadas con la meritocracia, las actitudes hacia la desigualdad, los valores sociales y la cohesión social, e incorpora además un componente experimental de viñetas.\nLos contenidos del cuestionario se organizan en los siguientes módulos:\n\nMódulo A. Caracterización inicial\nMódulo B. Meritocracia\nMódulo C. Actitudes hacia la desigualdad\nMódulo D. Experimento factorial de viñetas\nMódulo E. Valores sociales\nMódulo F. Cohesión social\n\nLos módulos de Meritocracia y Actitudes hacia la desigualdad corresponden a contenidos trasladados desde el instrumento de EDUMER. El módulo de Valores sociales incorpora una batería basada en el Portrait Values Questionnaire (PVQ-21), mientras que el módulo de Cohesión social se desarrolló en el marco de la colaboración con el Research Institute Social Cohesion (RISC) de la Universidad de Bremen. El Módulo D corresponde al experimento factorial de viñetas desarrollado en el marco de esta colaboración internacional.\nEl cuestionario combina preguntas y baterías provenientes de instrumentos utilizados previamente con contenidos incorporados específicamente para EDUMERCO Adultos. La procedencia y composición de los distintos módulos se detallan en la tabla siguiente\n\n\n\n\n\n\n\n\nMódulo\nContenido\nProcedencia\n\n\n\n\nA. Caracterización inicial\nCaracterización sociodemográfica\nElaboración propia\n\n\nB. Meritocracia\nMeritocracia\nTrasladado desde EDUMER.\n\n\nC. Actitudes hacia la desigualdad\nActitudes hacia la desigualdad\nTrasladado desde EDUMER.\n\n\nE. Valores sociales\nValores personales\nPVQ-21 de Schwartz\n\n\nF. Cohesión social\nCohesión social\nIdeals for Living Together (RISC)\n\n\nD. Experimento factorial\nEvaluación de perfiles mediante viñetas\nDiseño desarrollado en colaboración con RISC\n\n\n\n\n2.2.1 Experimento factorial de viñetas\nEl Módulo D corresponde al experimento factorial de viñetas incorporado en EDUMERCO Adultos. El diseño presenta perfiles ficticios cuyas características se combinan sistemáticamente para evaluar percepciones y disposiciones asociadas a la cohesión social. El experimento fue desarrollado en el marco de la colaboración internacional asociada al estudio, con participación de equipos vinculados a COES y al Research Institute Social Cohesion (RISC) de la Universidad de Bremen.\nCada viñeta describe a una persona ficticia a partir de un conjunto de características que varían experimentalmente. El diseño contempla nueve dimensiones: sexo, edad, antecedentes migratorios, religión, nivel educacional, situación laboral, ingreso del hogar, orientación política y orientación valórica.\nLas combinaciones de estas características fueron organizadas en conjuntos de viñetas y asignadas a las personas participantes durante la aplicación en línea. De este modo, el experimento permite observar cómo la variación sistemática de las características de los perfiles se relaciona con las evaluaciones realizadas por las personas participantes.\n\n\n\n\n\n\n\nDimensión\nCaracterísticas\n\n\n\n\nSexo\nHombre; Mujer\n\n\nEdad\n25; 45; 65 años\n\n\nAntecedentes migratorios\nNacional; segunda generación; migrante reciente\n\n\nReligión\nCatólico; Evangélico; Judío; No religioso\n\n\nNivel educacional\nEducación básica; Educación media; Educación universitaria\n\n\nSituación laboral\nEmpleado/a a tiempo completo; Desempleado/a; Dueño/a de casa\n\n\nIngreso del hogar\n$250.000; $710.000; $4.100.000\n\n\nOrientación política\nIzquierda; Centro; Derecha; Políticamente desinteresado\n\n\nOrientación valórica\nAutotrascendencia; Conservación; Autoensalzamiento; Apertura al cambio",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Instrumento</span>"
     ]
@@ -134,7 +114,47 @@
     "href": "03-implementacion.html",
     "title": "3  Implementación",
     "section": "",
-    "text": "4 ## Programación de la encuesta e integración técnica\n## Trabajo de campo\n## Control de calidad\n## Indicadores de desempeño del trabajo de campo",
+    "text": "3.1 Programación y aplicación de la encuesta\nLa encuesta de EDUMERCO Adultos fue programada y administrada mediante la plataforma formr, utilizada para implementar el cuestionario en línea y registrar las respuestas. La aplicación se organizó en distintos componentes correspondientes a las principales secciones del instrumento: inicio, meritocracy, vignetas y cohesion.\nLa aplicación correspondió a una encuesta autoadministrada en línea. La participación se realizó mediante el panel de Netquest, mientras que formr fue utilizado para la presentación del cuestionario, el registro de las respuestas y la administración de los distintos componentes de la encuesta.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Implementación</span>"
+    ]
+  },
+  {
+    "objectID": "03-implementacion.html#trabajo-de-campo",
+    "href": "03-implementacion.html#trabajo-de-campo",
+    "title": "3  Implementación",
+    "section": "3.2 Trabajo de campo",
+    "text": "3.2 Trabajo de campo\nEl levantamiento de EDUMERCO Adultos se realizó mediante un panel en línea administrado por Netquest. La población elegible correspondió a personas de 18 años o más residentes en Chile.\nEl trabajo de campo se desarrolló entre diciembre de 2024 y enero de 2025, y el levantamiento fue cerrado el 28 de enero de 2025. El tamaño muestral previsto fue de 3.500 casos.\nDurante el levantamiento se realizó un seguimiento de las cuotas muestrales por sexo, edad, nivel educacional y nivel socioeconómico. Este seguimiento registraba los casos acumulados y los casos faltantes respecto de cada categoría y era utilizado para orientar el cierre de las cuotas durante el trabajo de campo.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Implementación</span>"
+    ]
+  },
+  {
+    "objectID": "03-implementacion.html#integración-y-procesamiento-de-las-bases",
+    "href": "03-implementacion.html#integración-y-procesamiento-de-las-bases",
+    "title": "3  Implementación",
+    "section": "3.3 Integración y procesamiento de las bases",
+    "text": "3.3 Integración y procesamiento de las bases\nUna vez finalizado el levantamiento, los resultados de los distintos componentes de formr fueron extraídos y posteriormente integrados en R. La vinculación de los registros se realizó mediante la variable session, utilizada como identificador común para reunir en una misma base la información proveniente de las distintas partes del cuestionario.\nComo parte del procesamiento inicial se eliminaron variables y registros técnicos asociados al funcionamiento de la plataforma y se excluyeron los casos utilizados para pruebas de programación. La exclusión de estos casos se realizó mediante una lista explícita de identificadores de prueba incorporada al script de procesamiento.\nPosteriormente, se definieron distintos estados de participación a partir de variables observables en la base. Los participantes fueron identificados mediante la presencia de pid; los cuestionarios iniciados, mediante la presencia de start_01; y los cuestionarios completos, mediante la presencia de cohesion_12.\nLa última versión disponible de la base integrada utilizada para este manual, completas-280125.RData, contiene 3.484 casos y 526 variables.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Implementación</span>"
+    ]
+  },
+  {
+    "objectID": "03-implementacion.html#controles-de-procesamiento",
+    "href": "03-implementacion.html#controles-de-procesamiento",
+    "title": "3  Implementación",
+    "section": "3.4 Controles de procesamiento",
+    "text": "3.4 Controles de procesamiento\nEl procesamiento de la información incluyó procedimientos destinados a verificar la correcta integración de los componentes de la encuesta y a identificar registros que no correspondían a respuestas válidas del levantamiento.\nEn primer lugar, se excluyeron los registros asociados a identificadores utilizados para pruebas de programación y funcionamiento de la encuesta. En segundo lugar, se verificó la integración de los distintos componentes mediante la variable session. Finalmente, se distinguieron los cuestionarios iniciados y completos de acuerdo con los criterios definidos en el procesamiento de la base.\nEl script de procesamiento también calculó la duración de respuesta para los casos completos a partir de las variables created y modified. Este indicador permite describir el tiempo transcurrido entre el registro inicial y la última modificación de cada cuestionario.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Implementación</span>"
+    ]
+  },
+  {
+    "objectID": "03-implementacion.html#indicadores-de-desempeño-del-trabajo-de-campo",
+    "href": "03-implementacion.html#indicadores-de-desempeño-del-trabajo-de-campo",
+    "title": "3  Implementación",
+    "section": "3.5 Indicadores de desempeño del trabajo de campo",
+    "text": "3.5 Indicadores de desempeño del trabajo de campo\n\n\n\nIndicador\nResultado\n\n\n\n\nCasos completos en la base final\n3.484\n\n\nDuración mediana registrada\n22,87 minutos\n\n\nCasos con duración superior a 30 minutos\n1.116\n\n\nCasos con duración superior a 1 hora\n460\n\n\nCasos con duración superior a 2 horas\n274\n\n\nCasos con duración superior a 24 horas\n95",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Implementación</span>"
     ]
@@ -144,7 +164,7 @@
     "href": "04-base-datos.html",
     "title": "4  Base de datos",
     "section": "",
-    "text": "4.1 Archivos de datos y estructura de archivos",
+    "text": "4.1 Archivos de datos y estructura de archivos\nLas bases de datos se pueden encontrar en Zenodo",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Base de datos</span>"
     ]
@@ -164,7 +184,7 @@
     "href": "05-libro-codigos.html",
     "title": "5  Libro de códigos",
     "section": "",
-    "text": "5.1 Instrucciones",
+    "text": "5.1 Instrucciones\nEl libro de códigos documenta las variables presentes en la base final de EDUMERCO. Para cada variable se presenta su nombre, etiqueta, opciones de respuesta cuando corresponde, tipo de variable, número de casos válidos y archivo de programación de procedencia.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Libro de códigos</span>"
     ]

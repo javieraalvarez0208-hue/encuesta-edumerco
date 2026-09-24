@@ -74,6 +74,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="justify.css">
@@ -178,10 +180,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-strategy" id="toc-sec-strategy" class="nav-link" data-scroll-target="#sec-strategy"><span class="header-section-number">1.3</span> Estrategia de muestreo y selección de la muestra</a></li>
   <li><a href="#sec-quotas" id="toc-sec-quotas" class="nav-link" data-scroll-target="#sec-quotas"><span class="header-section-number">1.4</span> Cuotas y tamaño de la muestra</a></li>
   <li><a href="#alcance-del-control-de-cuotas" id="toc-alcance-del-control-de-cuotas" class="nav-link" data-scroll-target="#alcance-del-control-de-cuotas"><span class="header-section-number">1.5</span> Alcance del control de cuotas</a></li>
-  <li><a href="#restricción-de-factibilidad-conocida-educación-básica" id="toc-restricción-de-factibilidad-conocida-educación-básica" class="nav-link" data-scroll-target="#restricción-de-factibilidad-conocida-educación-básica"><span class="header-section-number">1.6</span> Restricción de factibilidad conocida (educación básica)</a></li>
-  <li><a href="#sec-longitudinal" id="toc-sec-longitudinal" class="nav-link" data-scroll-target="#sec-longitudinal"><span class="header-section-number">1.7</span> Diseño longitudinal</a></li>
-  <li><a href="#sec-weighting" id="toc-sec-weighting" class="nav-link" data-scroll-target="#sec-weighting"><span class="header-section-number">1.8</span> Ponderación y calibración</a></li>
-  <li><a href="#sec-errors" id="toc-sec-errors" class="nav-link" data-scroll-target="#sec-errors"><span class="header-section-number">1.9</span> Precisión, incertidumbre y errores ajenos al muestreo</a></li>
+  <li><a href="#sec-weighting" id="toc-sec-weighting" class="nav-link" data-scroll-target="#sec-weighting"><span class="header-section-number">1.6</span> Ponderación y calibración</a></li>
+  <li><a href="#sec-errors" id="toc-sec-errors" class="nav-link" data-scroll-target="#sec-errors"><span class="header-section-number">1.7</span> Precisión, incertidumbre y errores ajenos al muestreo</a></li>
+  <li><a href="#ética" id="toc-ética" class="nav-link" data-scroll-target="#ética"><span class="header-section-number">1.8</span> Ética</a></li>
   </ul>
 </nav>
     </div>
@@ -207,32 +208,145 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Esta sección describe las principales características del diseño muestral de EDUMERCO, incluyendo la población objetivo, la estrategia de selección de participantes, las cuotas utilizadas durante el levantamiento, el tamaño de la muestra, los procedimientos de control aplicados durante el trabajo de campo y los aspectos éticos de la encuesta.</p>
 <section id="sec-target" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sec-target"><span class="header-section-number">1.1</span> Población objetivo y población de la encuesta</h2>
+<p>La población objetivo de EDUMERCO corresponde a personas de 18 años o más residentes en Chile. La encuesta fue diseñada con cobertura nacional y dirigida a población general, considerando los niveles socioeconómicos ABC1, C2, C3 y DE, de acuerdo con la clasificación AIM 2022.</p>
+<p>La población de la encuesta corresponde al subconjunto de la población objetivo accesible a través del panel en línea de Netquest durante el período de levantamiento. En consecuencia, la cobertura efectiva del estudio se encuentra delimitada por las personas pertenecientes al panel que cumplían con los criterios de elegibilidad definidos para el estudio.</p>
 </section>
 <section id="sec-units" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sec-units"><span class="header-section-number">1.2</span> Unidades de análisis y dominios</h2>
+<p>La unidad de observación y de información corresponde a cada persona de 18 años o más que respondió individualmente el cuestionario. La unidad de análisis corresponde igualmente a las personas adultas estudiadas por EDUMERCO.</p>
+<p>El estudio fue diseñado con cobertura nacional y no se definieron dominios territoriales específicos de estimación. Por lo tanto, el diseño no contempla estimaciones independientes para regiones u otras subdivisiones territoriales.</p>
 </section>
 <section id="sec-strategy" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="sec-strategy"><span class="header-section-number">1.3</span> Estrategia de muestreo y selección de la muestra</h2>
+<p>EDUMERCO utilizó una muestra no probabilística mediante un panel en línea administrado por Netquest. Las personas participantes fueron seleccionadas entre integrantes elegibles del panel y accedieron al cuestionario mediante la infraestructura de integración entre el proveedor de la muestra y la encuesta en línea.</p>
+<p>El diseño contempló el control de la composición de la muestra mediante cuotas sociodemográficas.</p>
+<p>Los criterios generales de elegibilidad correspondieron a personas de 18 años o más residentes en Chile.</p>
 </section>
 <section id="sec-quotas" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="sec-quotas"><span class="header-section-number">1.4</span> Cuotas y tamaño de la muestra</h2>
+<p>El diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas sociodemográficas. Las categorías y proporciones objetivo fueron las siguientes:</p>
+<p>El diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas de sexo, edad y nivel socioeconómico. Las categorías y proporciones objetivo fueron las siguientes:</p>
+<div class="cell">
+<div id="tbl-cuotas" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cuotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1.1: Cuotas muestrales de EDUMERCO
+</figcaption>
+<div aria-describedby="tbl-cuotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-condensed cell caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Categoría</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">N</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sexo</td>
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: right; width: 4em;">1712</td>
+<td style="text-align: right; width: 5em;">48.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sexo</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: right; width: 4em;">1788</td>
+<td style="text-align: right; width: 5em;">51.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edad</td>
+<td style="text-align: left;">18–24 años</td>
+<td style="text-align: right; width: 4em;">476</td>
+<td style="text-align: right; width: 5em;">13.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Edad</td>
+<td style="text-align: left;">25–34 años</td>
+<td style="text-align: right; width: 4em;">745</td>
+<td style="text-align: right; width: 5em;">21.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edad</td>
+<td style="text-align: left;">35–44 años</td>
+<td style="text-align: right; width: 4em;">637</td>
+<td style="text-align: right; width: 5em;">18.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Edad</td>
+<td style="text-align: left;">45–54 años</td>
+<td style="text-align: right; width: 4em;">630</td>
+<td style="text-align: right; width: 5em;">18.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edad</td>
+<td style="text-align: left;">55–64 años</td>
+<td style="text-align: right; width: 4em;">511</td>
+<td style="text-align: right; width: 5em;">14.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Edad</td>
+<td style="text-align: left;">65 años o más</td>
+<td style="text-align: right; width: 4em;">501</td>
+<td style="text-align: right; width: 5em;">14.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nivel socioeconómico</td>
+<td style="text-align: left;">ABC1</td>
+<td style="text-align: right; width: 4em;">455</td>
+<td style="text-align: right; width: 5em;">13.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivel socioeconómico</td>
+<td style="text-align: left;">C2</td>
+<td style="text-align: right; width: 4em;">420</td>
+<td style="text-align: right; width: 5em;">12.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nivel socioeconómico</td>
+<td style="text-align: left;">C3</td>
+<td style="text-align: right; width: 4em;">875</td>
+<td style="text-align: right; width: 5em;">25.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivel socioeconómico</td>
+<td style="text-align: left;">DE</td>
+<td style="text-align: right; width: 4em;">1750</td>
+<td style="text-align: right; width: 5em;">50.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>El tamaño muestral previsto para el levantamiento fue de 3.500 entrevistas. La base final disponible, correspondiente a <code>completas-280125.RData</code> contiene 3.484 casos.</p>
+<p>Durante el trabajo de campo se incorporó además el nivel educacional como una cuota adicional, cuyo cumplimiento fue objeto de seguimiento operativo.</p>
 </section>
 <section id="alcance-del-control-de-cuotas" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="alcance-del-control-de-cuotas"><span class="header-section-number">1.5</span> Alcance del control de cuotas</h2>
+<p>Durante el levantamiento se realizó un seguimiento de las cuotas mediante el registro de los casos acumulados y de los casos faltantes para cada categoría. Esta información era reportada a Netquest para orientar el cierre de las cuotas durante el trabajo de campo.</p>
+<p>Además, en el procesamiento de la base se revisó la distribución de los casos según sexo, edad, nivel educacional y nivel socioeconómico mediante el cálculo de frecuencias.</p>
 </section>
-<section id="restricción-de-factibilidad-conocida-educación-básica" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="restricción-de-factibilidad-conocida-educación-básica"><span class="header-section-number">1.6</span> Restricción de factibilidad conocida (educación básica)</h2>
+<section id="sec-weighting" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="sec-weighting"><span class="header-section-number">1.6</span> Ponderación y calibración</h2>
+<p>No se aplicaron procedimientos de ponderación ni calibración a la base final de EDUMERCO.</p>
 </section>
-<section id="sec-longitudinal" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="sec-longitudinal"><span class="header-section-number">1.7</span> Diseño longitudinal</h2>
+<section id="sec-errors" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="sec-errors"><span class="header-section-number">1.7</span> Precisión, incertidumbre y errores ajenos al muestreo</h2>
+<p>EDUMERCO utilizó una muestra no probabilística obtenida mediante un panel en línea, por lo que las unidades de la población objetivo no tienen probabilidades conocidas de inclusión. En consecuencia, los resultados no se interpretan bajo los supuestos de un diseño probabilístico ni se les atribuye un margen de error muestral basado en el muestreo aleatorio simple.</p>
+<p>Entre las principales fuentes de incertidumbre asociadas al diseño se encuentran la cobertura del panel, la participación y no respuesta de sus integrantes y los posibles errores de medición propios de una encuesta autoadministrada por internet.</p>
 </section>
-<section id="sec-weighting" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="sec-weighting"><span class="header-section-number">1.8</span> Ponderación y calibración</h2>
-</section>
-<section id="sec-errors" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="sec-errors"><span class="header-section-number">1.9</span> Precisión, incertidumbre y errores ajenos al muestreo</h2>
+<section id="ética" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="ética"><span class="header-section-number">1.8</span> Ética</h2>
+<p>EDUMERCO se desarrolló en el marco del proyecto FONDECYT Regular N.º 1210847, cuyo protocolo de investigación fue sometido a revisión por el Comité de Ética de la Investigación de la Facultad de Ciencias Sociales de la Universidad de Chile. La encuesta a población adulta correspondió a una modificación del estudio original, para la cual se actualizaron los antecedentes y documentos asociados al proyecto.</p>
+<p>En diciembre de 2024, mediante la Carta N.º 54-2024, el Comité de Ética aprobó las modificaciones asociadas a la encuesta de población adulta. Estas incluyeron el cambio de denominación de la encuesta a “Educación, meritocracia y cohesión social”, la incorporación de una nueva fuente de financiamiento asociada a COES y el nuevo documento de consentimiento informado para la participación de personas adultas. El Comité señaló que estas modificaciones no implicaban cambios en los objetivos ni en el nivel de riesgo del proyecto.</p>
 
 
 </section>
