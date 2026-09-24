@@ -7,4 +7,6 @@ format:
 
 # Libro de códigos {#codebook}
 
+El libro de códigos documenta las variables presentes en la base final de EDUMERCO. Para cada variable se presenta su nombre, etiqueta, opciones de respuesta cuando corresponde, tipo de variable, número de casos válidos y archivo de programación de procedencia.
+
 ## Instrucciones

@@ -9,4 +9,6 @@ format:
 
 ## Archivos de datos y estructura de archivos
 
+Las bases de datos se pueden encontrar en Zenodo
+
 ## Acceso a los datos y condiciones de uso {#sec-bases}

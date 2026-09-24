@@ -7,20 +7,107 @@ format:
 
 # Diseño {#sec-estadis}
 
+Esta sección describe las principales características del diseño muestral de EDUMERCO, incluyendo la población objetivo, la estrategia de selección de participantes, las cuotas utilizadas durante el levantamiento, el tamaño de la muestra, los procedimientos de control aplicados durante el trabajo de campo y los aspectos éticos de la encuesta. 
+
 ## Población objetivo y población de la encuesta {#sec-target}
+
+La población objetivo de EDUMERCO corresponde a personas de 18 años o más residentes en Chile. La encuesta fue diseñada con cobertura nacional y dirigida a población general, considerando los niveles socioeconómicos ABC1, C2, C3 y DE, de acuerdo con la clasificación AIM 2022.
+
+La población de la encuesta corresponde al subconjunto de la población objetivo accesible a través del panel en línea de Netquest durante el período de levantamiento. En consecuencia, la cobertura efectiva del estudio se encuentra delimitada por las personas pertenecientes al panel que cumplían con los criterios de elegibilidad definidos para el estudio.
 
 ## Unidades de análisis y dominios {#sec-units}
 
+La unidad de observación y de información corresponde a cada persona de 18 años o más que respondió individualmente el cuestionario. La unidad de análisis corresponde igualmente a las personas adultas estudiadas por EDUMERCO.
+
+El estudio fue diseñado con cobertura nacional y no se definieron dominios territoriales específicos de estimación. Por lo tanto, el diseño no contempla estimaciones independientes para regiones u otras subdivisiones territoriales.
+
 ## Estrategia de muestreo y selección de la muestra {#sec-strategy}
+
+EDUMERCO utilizó una muestra no probabilística mediante un panel en línea administrado por Netquest. Las personas participantes fueron seleccionadas entre integrantes elegibles del panel y accedieron al cuestionario mediante la infraestructura de integración entre el proveedor de la muestra y la encuesta en línea.
+
+El diseño contempló el control de la composición de la muestra mediante cuotas sociodemográficas.
+
+Los criterios generales de elegibilidad correspondieron a personas de 18 años o más residentes en Chile.
 
 ## Cuotas y tamaño de la muestra {#sec-quotas}
 
+El diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas sociodemográficas. Las categorías y proporciones objetivo fueron las siguientes:
+
+El diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas de sexo, edad y nivel socioeconómico. Las categorías y proporciones objetivo fueron las siguientes:
+
+```{r}
+#| label: tbl-cuotas
+#| tbl-cap: "Cuotas muestrales de EDUMERCO"
+#| echo: false
+
+library(knitr)
+library(kableExtra)
+
+cuotas <- data.frame(
+  Variable = c(
+    "Sexo", "Sexo",
+    "Edad", "Edad", "Edad", "Edad", "Edad", "Edad",
+    "Nivel socioeconómico", "Nivel socioeconómico",
+    "Nivel socioeconómico", "Nivel socioeconómico"
+  ),
+  
+  Categoría = c(
+    "Hombre", "Mujer",
+    "18–24 años", "25–34 años", "35–44 años",
+    "45–54 años", "55–64 años", "65 años o más",
+    "ABC1", "C2", "C3", "DE"
+  ),
+  
+  N = c(
+    1712, 1788,
+    476, 745, 637, 630, 511, 501,
+    455, 420, 875, 1750
+  ),
+  
+  Porcentaje = c(
+    48.9, 51.1,
+    13.6, 21.3, 18.2, 18.0, 14.6, 14.3,
+    13.0, 12.0, 25.0, 50.0
+  )
+)
+
+cuotas |>
+  kable(
+    format = "html",
+    col.names = c("Variable", "Categoría", "N", "%"),
+    align = c("l", "l", "r", "r")
+  ) |>
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    full_width = FALSE
+  ) |>
+  column_spec(3, width = "4em") |>
+  column_spec(4, width = "5em")
+```
+
+
+El tamaño muestral previsto para el levantamiento fue de 3.500 entrevistas. La base final disponible, correspondiente a  `completas-280125.RData` contiene 3.484 casos.
+
+Durante el trabajo de campo se incorporó además el nivel educacional como una cuota adicional, cuyo cumplimiento fue objeto de seguimiento operativo.
+
 ## Alcance del control de cuotas
 
-## Restricción de factibilidad conocida (educación básica)
+Durante el levantamiento se realizó un seguimiento de las cuotas mediante el registro de los casos acumulados y de los casos faltantes para cada categoría. Esta información era reportada a Netquest para orientar el cierre de las cuotas durante el trabajo de campo.
 
-## Diseño longitudinal {#sec-longitudinal}
+Además, en el procesamiento de la base se revisó la distribución de los casos según sexo, edad, nivel educacional y nivel socioeconómico mediante el cálculo de frecuencias.
 
 ## Ponderación y calibración {#sec-weighting}
 
+No se aplicaron procedimientos de ponderación ni calibración a la base final de EDUMERCO.
+
 ## Precisión, incertidumbre y errores ajenos al muestreo {#sec-errors}
+
+EDUMERCO utilizó una muestra no probabilística obtenida mediante un panel en línea, por lo que las unidades de la población objetivo no tienen probabilidades conocidas de inclusión. En consecuencia, los resultados no se interpretan bajo los supuestos de un diseño probabilístico ni se les atribuye un margen de error muestral basado en el muestreo aleatorio simple.
+
+Entre las principales fuentes de incertidumbre asociadas al diseño se encuentran la cobertura del panel, la participación y no respuesta de sus integrantes y los posibles errores de medición propios de una encuesta autoadministrada por internet.
+
+## Ética
+
+EDUMERCO se desarrolló en el marco del proyecto FONDECYT Regular N.º 1210847, cuyo protocolo de investigación fue sometido a revisión por el Comité de Ética de la Investigación de la Facultad de Ciencias Sociales de la Universidad de Chile. La encuesta a población adulta correspondió a una modificación del estudio original, para la cual se actualizaron los antecedentes y documentos asociados al proyecto.
+
+En diciembre de 2024, mediante la Carta N.º 54-2024, el Comité de Ética aprobó las modificaciones asociadas a la encuesta de población adulta. Estas incluyeron el cambio de denominación de la encuesta a “Educación, meritocracia y cohesión social”, la incorporación de una nueva fuente de financiamiento asociada a COES y el nuevo documento de consentimiento informado para la participación de personas adultas. El Comité señaló que estas modificaciones no implicaban cambios en los objetivos ni en el nivel de riesgo del proyecto.

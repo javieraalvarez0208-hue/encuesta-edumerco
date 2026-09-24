@@ -7,10 +7,45 @@ format:
 
 # Implementación {#imp-instrument}
 
-# ## Programación de la encuesta e integración técnica
+## Programación y aplicación de la encuesta
 
-## Trabajo de campo
+La encuesta de EDUMERCO Adultos fue programada y administrada mediante la plataforma formr, utilizada para implementar el cuestionario en línea y registrar las respuestas. La aplicación se organizó en distintos componentes correspondientes a las principales secciones del instrumento: `inicio`, `meritocracy`, `vignetas` y `cohesion`.
 
-## Control de calidad
+La aplicación correspondió a una encuesta autoadministrada en línea. La participación se realizó mediante el panel de Netquest, mientras que formr fue utilizado para la presentación del cuestionario, el registro de las respuestas y la administración de los distintos componentes de la encuesta.
 
-## Indicadores de desempeño del trabajo de campo
+## Trabajo de campo
+
+El levantamiento de EDUMERCO Adultos se realizó mediante un panel en línea administrado por Netquest. La población elegible correspondió a personas de 18 años o más residentes en Chile.
+
+El trabajo de campo se desarrolló entre diciembre de 2024 y enero de 2025, y el levantamiento fue cerrado el 28 de enero de 2025. El tamaño muestral previsto fue de 3.500 casos.
+
+Durante el levantamiento se realizó un seguimiento de las cuotas muestrales por sexo, edad, nivel educacional y nivel socioeconómico. Este seguimiento registraba los casos acumulados y los casos faltantes respecto de cada categoría y era utilizado para orientar el cierre de las cuotas durante el trabajo de campo.
+
+## Integración y procesamiento de las bases
+
+Una vez finalizado el levantamiento, los resultados de los distintos componentes de formr fueron extraídos y posteriormente integrados en R. La vinculación de los registros se realizó mediante la variable `session`, utilizada como identificador común para reunir en una misma base la información proveniente de las distintas partes del cuestionario.
+
+Como parte del procesamiento inicial se eliminaron variables y registros técnicos asociados al funcionamiento de la plataforma y se excluyeron los casos utilizados para pruebas de programación. La exclusión de estos casos se realizó mediante una lista explícita de identificadores de prueba incorporada al script de procesamiento.
+
+Posteriormente, se definieron distintos estados de participación a partir de variables observables en la base. Los participantes fueron identificados mediante la presencia de `pid`; los cuestionarios iniciados, mediante la presencia de `start_01`; y los cuestionarios completos, mediante la presencia de `cohesion_12`.
+
+La última versión disponible de la base integrada utilizada para este manual, `completas-280125.RData`, contiene 3.484 casos y 526 variables.
+
+## Controles de procesamiento
+
+El procesamiento de la información incluyó procedimientos destinados a verificar la correcta integración de los componentes de la encuesta y a identificar registros que no correspondían a respuestas válidas del levantamiento.
+
+En primer lugar, se excluyeron los registros asociados a identificadores utilizados para pruebas de programación y funcionamiento de la encuesta. En segundo lugar, se verificó la integración de los distintos componentes mediante la variable `session`. Finalmente, se distinguieron los cuestionarios iniciados y completos de acuerdo con los criterios definidos en el procesamiento de la base.
+
+El script de procesamiento también calculó la duración de respuesta para los casos completos a partir de las variables `created` y `modified`. Este indicador permite describir el tiempo transcurrido entre el registro inicial y la última modificación de cada cuestionario.
+
+## Indicadores de desempeño del trabajo de campo
+
+| Indicador                                |     Resultado |
+|------------------------------------------|--------------:|
+| Casos completos en la base final         |         3.484 |
+| Duración mediana registrada              | 22,87 minutos |
+| Casos con duración superior a 30 minutos |         1.116 |
+| Casos con duración superior a 1 hora     |           460 |
+| Casos con duración superior a 2 horas    |           274 |
+| Casos con duración superior a 24 horas   |            95 |

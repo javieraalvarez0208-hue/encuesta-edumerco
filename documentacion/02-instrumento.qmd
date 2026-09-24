@@ -7,6 +7,52 @@ format:
 
 # Instrumento {#sec-items}
 
-## Estructura y contenido del cuestionario
+## Consentimiento Informado
 
-## Escalas de medición y fuentes de los ítems de la encuesta
+La participación en EDUMERCO Adultos estuvo precedida por un procedimiento de consentimiento informado incorporado a la aplicación en línea. Este documento informó sobre los objetivos del estudio, las características y voluntariedad de la participación, el tratamiento confidencial de la información y las condiciones de participación. El consentimiento debía ser aceptado antes de acceder al cuestionario.
+
+## Módulo de preguntas
+
+El instrumento de recolección consiste en un cuestionario estructurado dirigido a personas de 18 años o más residentes en Chile. El cuestionario aborda distintas dimensiones relacionadas con la meritocracia, las actitudes hacia la desigualdad, los valores sociales y la cohesión social, e incorpora además un componente experimental de viñetas.
+
+Los contenidos del cuestionario se organizan en los siguientes módulos:
+
+- Módulo A. Caracterización inicial
+- Módulo B. Meritocracia
+- Módulo C. Actitudes hacia la desigualdad
+- Módulo D. Experimento factorial de viñetas
+- Módulo E. Valores sociales
+- Módulo F. Cohesión social
+
+Los módulos de Meritocracia y Actitudes hacia la desigualdad corresponden a contenidos trasladados desde el instrumento de EDUMER. El módulo de Valores sociales incorpora una batería basada en el *Portrait Values Questionnaire* (PVQ-21), mientras que el módulo de Cohesión social se desarrolló en el marco de la colaboración con el *Research Institute Social Cohesion* (RISC) de la Universidad de Bremen. El Módulo D corresponde al experimento factorial de viñetas desarrollado en el marco de esta colaboración internacional.
+
+El cuestionario combina preguntas y baterías provenientes de instrumentos utilizados previamente con contenidos incorporados específicamente para EDUMERCO Adultos. La procedencia y composición de los distintos módulos se detallan en la tabla siguiente
+
+| Módulo | Contenido | Procedencia |
+|------------------------|------------------------|------------------------|
+| A. Caracterización inicial | Caracterización sociodemográfica | Elaboración propia |
+| B. Meritocracia | Meritocracia | Trasladado desde EDUMER. |
+| C. Actitudes hacia la desigualdad | Actitudes hacia la desigualdad | Trasladado desde EDUMER. |
+| E. Valores sociales | Valores personales | PVQ-21 de Schwartz |
+| F. Cohesión social | Cohesión social | *Ideals for Living Together* (RISC) |
+| D. Experimento factorial | Evaluación de perfiles mediante viñetas | Diseño desarrollado en colaboración con RISC |
+
+### Experimento factorial de viñetas
+
+El Módulo D corresponde al experimento factorial de viñetas incorporado en EDUMERCO Adultos. El diseño presenta perfiles ficticios cuyas características se combinan sistemáticamente para evaluar percepciones y disposiciones asociadas a la cohesión social. El experimento fue desarrollado en el marco de la colaboración internacional asociada al estudio, con participación de equipos vinculados a COES y al *Research Institute Social Cohesion* (RISC) de la Universidad de Bremen.
+
+Cada viñeta describe a una persona ficticia a partir de un conjunto de características que varían experimentalmente. El diseño contempla nueve dimensiones: sexo, edad, antecedentes migratorios, religión, nivel educacional, situación laboral, ingreso del hogar, orientación política y orientación valórica.
+
+Las combinaciones de estas características fueron organizadas en conjuntos de viñetas y asignadas a las personas participantes durante la aplicación en línea. De este modo, el experimento permite observar cómo la variación sistemática de las características de los perfiles se relaciona con las evaluaciones realizadas por las personas participantes.
+
+| Dimensión | Características |
+|------------------------------------|------------------------------------|
+| Sexo | Hombre; Mujer |
+| Edad | 25; 45; 65 años |
+| Antecedentes migratorios | Nacional; segunda generación; migrante reciente |
+| Religión | Católico; Evangélico; Judío; No religioso |
+| Nivel educacional | Educación básica; Educación media; Educación universitaria |
+| Situación laboral | Empleado/a a tiempo completo; Desempleado/a; Dueño/a de casa |
+| Ingreso del hogar | \$250.000; \$710.000; \$4.100.000 |
+| Orientación política | Izquierda; Centro; Derecha; Políticamente desinteresado |
+| Orientación valórica | Autotrascendencia; Conservación; Autoensalzamiento; Apertura al cambio |
