@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Manual Metodológico de Encuesta EDUMERCO</title>
+<title>4&nbsp; Bases de datos – Manual Metodológico de Encuesta EDUMERCO</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,7 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-diseno.html" rel="next">
+<link href="./05-libro-codigos.html" rel="next">
+<link href="./03-implementacion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -78,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="justify.css">
 </head>
 
-<body class="nav-sidebar docked fullcontent quarto-light">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -87,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Presentación</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-bases-datos.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bases de datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -122,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentación</span></a>
   </div>
 </li>
@@ -146,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-bases-datos.html" class="sidebar-item-text sidebar-link">
+  <a href="./04-bases-datos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bases de datos</span></span></a>
   </div>
 </li>
@@ -167,13 +168,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#acceso-a-los-datos-y-condiciones-de-uso" id="toc-acceso-a-los-datos-y-condiciones-de-uso" class="nav-link active" data-scroll-target="#acceso-a-los-datos-y-condiciones-de-uso"><span class="header-section-number">4.1</span> Acceso a los datos y condiciones de uso</a></li>
+  <li><a href="#sec-bases" id="toc-sec-bases" class="nav-link" data-scroll-target="#sec-bases"><span class="header-section-number">4.2</span> Acceso a los datos y condiciones de uso</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Manual Metodológico de Encuesta EDUMERCO</h1>
+<h1 class="title"><span id="databases" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bases de datos</span></span></h1>
 </div>
 
 
@@ -190,20 +200,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="images/edumer.png" class="float-end img-fluid" width="160"></p>
-<section id="presentación" class="level1 unnumbered">
-<h1 class="unnumbered">Presentación</h1>
-<p>Este manual documenta la encuesta Educación, Meritocracia y Cohesión Social (EDUMERCO), realizada en el marco del proyecto “Meritocracia en la escuela: Fundamentos morales del mercado educativo y sus implicancias para la formación ciudadana en Chile” (EDUMER), FONDECYT Regular N.º 1210847, dirigido por Juan Carlos Castillo, del Departamento de Sociología de la Universidad de Chile, y financiado por la Agencia Nacional de Investigación y Desarrollo (ANID). EDUMERCO tiene como objetivo estudiar las creencias y actitudes sobre meritocracia, desigualdad y cohesión social en la población adulta en Chile.</p>
-<p>EDUMERCO surge como una extensión del Estudio Panel Educación y Meritocracia (EDUMER), desarrollado con estudiantes de enseñanza básica y media, sus profesores y apoderados. El diseño original del proyecto contemplaba tres olas del estudio panel escolar, sin embargo, los retrasos en la recolección de datos asociados a la pandemia de COVID-19 desplazaron el inicio del panel a 2023, permitiendo realizar dos olas durante el período de ejecución del proyecto. En este contexto, se incorporó una encuesta a población adulta, orientada a ampliar el estudio de los temas centrales del proyecto y permitir la comparación de actitudes y creencias entre jóvenes y adultos.</p>
-<p>El cuestionario de EDUMERCO se estructuró en seis módulos temáticos. Los módulos de caracterización sociodemográfica, meritocracia y actitudes hacia la desigualdad fueron desarrollados por el equipo de investigación del proyecto. Adicionalmente, el instrumento incorporó un experimento factorial basado en viñetas, una batería de valores sociales y una escala de ideales de convivencia social. Estos componentes fueron elaborados o adaptados a partir de instrumentos utilizados por el Research Institute Social Cohesion (RISC, Alemania), en el contexto de una colaboración académica orientada a la utilización de herramientas comparables para el estudio de la cohesión social.</p>
-<p>El componente experimental basado en viñetas fue desarrollado mediante un trabajo conjunto entre investigadores de COES y del equipo asociado al RISC y la Universidad de Bremen. La batería de valores sociales corresponde a una adaptación de la escala de Valores Humanos Básicos de Shalom Schwartz (PVQ-21), mientras que la batería sobre ideales de convivencia social fue incorporada a partir del instrumento <em>Ideals for Living Together</em>, empleado en el Social Cohesion Panel del RISC</p>
-<p>La encuesta EDUMERCO fue realizada entre diciembre de 2024 y enero de 2025 mediante un panel en línea dirigido a personas de 18 años o más residentes en Chile. La muestra fue proporcionada por Netquest, mientras que la programación y administración del cuestionario fueron implementadas por el equipo de investigación utilizando la plataforma Formr. El diseño contempló un tamaño muestral de 3.500 casos y cobertura nacional, con cuotas de sexo, edad y nivel socioeconómico. Durante el levantamiento se incorporó además el nivel educacional como una cuota adicional. La base final disponible contiene 3.484 casos.</p>
-<p>Este manual tiene como propósito sistematizar la información metodológica asociada a EDUMERCO y proporcionar la documentación necesaria para comprender y utilizar los datos producidos por el estudio. Para ello, se organiza en las secciones <strong>Diseño, Instrumento, Implementación, Base de datos, Libro de códigos y Apéndice</strong>. Estas secciones documentan, respectivamente, las características del diseño de la encuesta, la composición y procedencia del instrumento y del componente experimental, el proceso de programación y levantamiento de los datos, la base final disponible y sus condiciones de acceso, la estructura y definición de las variables, y la información complementaria asociada al estudio.</p>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-
-
+<p>Esta sección documenta la base de datos utilizada para el procesamiento y análisis de EDUMERCO Adultos, incluyendo su estructura, la versión final disponible y las condiciones de acceso y reutilización de los datos.</p>
+<section id="acceso-a-los-datos-y-condiciones-de-uso" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="acceso-a-los-datos-y-condiciones-de-uso"><span class="header-section-number">4.1</span> Acceso a los datos y condiciones de uso</h2>
+<p>La base de datos final de EDUMERCO Adultos corresponde a la base integrada utilizada para el procesamiento y análisis de la encuesta. Contiene 3.484 casos y 526 variables y se encuentra disponible en un único archivo en formato <code>.RData</code>.</p>
+<p>El archivo disponible es <code>completas-280125.RData</code>.</p>
 </section>
+<section id="sec-bases" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-bases"><span class="header-section-number">4.2</span> Acceso a los datos y condiciones de uso</h2>
+<p>La base de datos final de EDUMERCO Adultos se encuentra disponible en <strong>Zenodo</strong> bajo una licencia Creative Commons Attribution 4.0 International (CC BY 4.0).</p>
+<p><strong>Referencia:</strong> Castillo, J. C., Lafferte Tamayo, A. P., &amp; Carrasco, K. (2025). <em>EDUMERCO Adultos: base de datos</em> [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.22939453.</p>
+<p><a href="Referencia:%20Castillo,%20J.%20C.,%20Lafferte%20Tamayo,%20A.%20P.,%20&amp;%20Carrasco,%20K.%20(2025).%20EDUMERCO%20Adultos:%20base%20de%20datos%20%5BDataset%5D.%20Zenodo.%20https://doi.org/10.5281/zenodo.22939453"><strong>DOI:</strong> https://doi.org/10.5281/zenodo.22939453</a></p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -609,10 +618,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03-implementacion.html" class="pagination-link" aria-label="Implementación">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Implementación</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-diseno.html" class="pagination-link" aria-label="Diseño">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Diseño</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05-libro-codigos.html" class="pagination-link" aria-label="Libro de códigos">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Libro de códigos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
