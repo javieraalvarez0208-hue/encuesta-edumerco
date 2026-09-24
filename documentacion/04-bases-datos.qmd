@@ -1,0 +1,24 @@
+---
+format:
+  html:
+    toc: true
+    css: justify.css
+---
+
+# Bases de datos {#databases}
+
+Esta sección documenta la base de datos utilizada para el procesamiento y análisis de EDUMERCO Adultos, incluyendo su estructura, la versión final disponible y las condiciones de acceso y reutilización de los datos.
+
+## Acceso a los datos y condiciones de uso
+
+La base de datos final de EDUMERCO Adultos corresponde a la base integrada utilizada para el procesamiento y análisis de la encuesta. Contiene 3.484 casos y 526 variables y se encuentra disponible en un único archivo en formato `.RData`.
+
+El archivo disponible es `completas-280125.RData`.
+
+## Acceso a los datos y condiciones de uso {#sec-bases}
+
+La base de datos final de EDUMERCO Adultos se encuentra disponible en **Zenodo** bajo una licencia Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+**Referencia:** Castillo, J. C., Lafferte Tamayo, A. P., & Carrasco, K. (2025). *EDUMERCO Adultos: base de datos* \[Dataset\]. Zenodo. https://doi.org/10.5281/zenodo.22939453.
+
+[**DOI:** https://doi.org/10.5281/zenodo.22939453](Referencia: Castillo, J. C., Lafferte Tamayo, A. P., & Carrasco, K. (2025). EDUMERCO Adultos: base de datos [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.22939453)

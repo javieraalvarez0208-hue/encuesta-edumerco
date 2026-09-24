@@ -7,7 +7,7 @@ format:
 
 # Diseño {#sec-estadis}
 
-Esta sección describe las principales características del diseño muestral de EDUMERCO, incluyendo la población objetivo, la estrategia de selección de participantes, las cuotas utilizadas durante el levantamiento, el tamaño de la muestra, los procedimientos de control aplicados durante el trabajo de campo y los aspectos éticos de la encuesta. 
+Esta sección describe las principales características del diseño de EDUMERCO Adultos. Se trata de una encuesta transversal, aplicada en una única medición a población adulta residente en Chile. En esta sección se presentan la población objetivo y la población efectivamente accesible mediante el panel, las unidades de análisis, la estrategia de selección de participantes, las cuotas utilizadas durante el levantamiento y el tamaño de la muestra. También se documentan el seguimiento de las cuotas, la ausencia de procedimientos de ponderación y calibración, las principales consideraciones sobre precisión e incertidumbre y los aspectos éticos de la encuesta.
 
 ## Población objetivo y población de la encuesta {#sec-target}
 

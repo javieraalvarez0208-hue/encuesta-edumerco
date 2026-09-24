@@ -7,6 +7,8 @@ format:
 
 # Instrumento {#sec-items}
 
+Esta sección describe el instrumento de recolección utilizado en EDUMERCO Adultos, su organización en módulos y la procedencia de los contenidos incorporados en el cuestionario. También se presenta el experimento factorial de viñetas, incluyendo las dimensiones que fueron manipuladas en los perfiles utilizados durante la aplicación.
+
 ## Consentimiento Informado
 
 La participación en EDUMERCO Adultos estuvo precedida por un procedimiento de consentimiento informado incorporado a la aplicación en línea. Este documento informó sobre los objetivos del estudio, las características y voluntariedad de la participación, el tratamiento confidencial de la información y las condiciones de participación. El consentimiento debía ser aceptado antes de acceder al cuestionario.
@@ -24,18 +26,16 @@ Los contenidos del cuestionario se organizan en los siguientes módulos:
 - Módulo E. Valores sociales
 - Módulo F. Cohesión social
 
-Los módulos de Meritocracia y Actitudes hacia la desigualdad corresponden a contenidos trasladados desde el instrumento de EDUMER. El módulo de Valores sociales incorpora una batería basada en el *Portrait Values Questionnaire* (PVQ-21), mientras que el módulo de Cohesión social se desarrolló en el marco de la colaboración con el *Research Institute Social Cohesion* (RISC) de la Universidad de Bremen. El Módulo D corresponde al experimento factorial de viñetas desarrollado en el marco de esta colaboración internacional.
-
-El cuestionario combina preguntas y baterías provenientes de instrumentos utilizados previamente con contenidos incorporados específicamente para EDUMERCO Adultos. La procedencia y composición de los distintos módulos se detallan en la tabla siguiente
+El cuestionario combina preguntas y baterías provenientes de instrumentos utilizados previamente con contenidos incorporados específicamente para EDUMERCO Adultos. La procedencia y composición de los distintos módulos se resumen a continuación:
 
 | Módulo | Contenido | Procedencia |
 |------------------------|------------------------|------------------------|
 | A. Caracterización inicial | Caracterización sociodemográfica | Elaboración propia |
-| B. Meritocracia | Meritocracia | Trasladado desde EDUMER. |
-| C. Actitudes hacia la desigualdad | Actitudes hacia la desigualdad | Trasladado desde EDUMER. |
-| E. Valores sociales | Valores personales | PVQ-21 de Schwartz |
-| F. Cohesión social | Cohesión social | *Ideals for Living Together* (RISC) |
+| B. Meritocracia | Meritocracia | Trasladado desde EDUMER. Adaptado para población adulta |
+| C. Actitudes hacia la desigualdad | Actitudes hacia la desigualdad | Trasladado desde EDUMER. Adaptado para población adulta |
 | D. Experimento factorial | Evaluación de perfiles mediante viñetas | Diseño desarrollado en colaboración con RISC |
+| E. Valores sociales | Valores personales | PVQ-21 de Schwartz |
+| F. Cohesión social | F. Cohesión social | *Ideals for Living Together* (RISC) |
 
 ### Experimento factorial de viñetas
 
