@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -194,15 +213,23 @@ ul.task-list li input[type="checkbox"] {
 <section id="presentación" class="level1 unnumbered">
 <h1 class="unnumbered">Presentación</h1>
 <p>Este manual documenta la encuesta Educación, Meritocracia y Cohesión Social (EDUMERCO), realizada en el marco del proyecto “Meritocracia en la escuela: Fundamentos morales del mercado educativo y sus implicancias para la formación ciudadana en Chile” (EDUMER), FONDECYT Regular N.º 1210847, dirigido por Juan Carlos Castillo, del Departamento de Sociología de la Universidad de Chile, y financiado por la Agencia Nacional de Investigación y Desarrollo (ANID). EDUMERCO tiene como objetivo estudiar las creencias y actitudes sobre meritocracia, desigualdad y cohesión social en la población adulta en Chile.</p>
-<p>EDUMERCO surge como una extensión del Estudio Panel Educación y Meritocracia (EDUMER), desarrollado con estudiantes de enseñanza básica y media, sus profesores y apoderados. El diseño original del proyecto contemplaba tres olas del estudio panel escolar, sin embargo, los retrasos en la recolección de datos asociados a la pandemia de COVID-19 desplazaron el inicio del panel a 2023, permitiendo realizar dos olas durante el período de ejecución del proyecto. En este contexto, se incorporó una encuesta a población adulta, orientada a ampliar el estudio de los temas centrales del proyecto y permitir la comparación de actitudes y creencias entre jóvenes y adultos.</p>
+<p>EDUMERCO surge como una extensión del Estudio Panel Educación y Meritocracia (EDUMER), desarrollado con estudiantes de enseñanza básica y media, sus profesores y apoderados. A este estudio se incorporó una encuesta a población adulta, orientada a ampliar el análisis de los temas centrales del proyecto y permitir la comparación de actitudes y creencias entre jóvenes y adultos.</p>
 <p>El cuestionario de EDUMERCO se estructuró en seis módulos temáticos. Los módulos de caracterización sociodemográfica, meritocracia y actitudes hacia la desigualdad fueron desarrollados por el equipo de investigación del proyecto. Adicionalmente, el instrumento incorporó un experimento factorial basado en viñetas, una batería de valores sociales y una escala de ideales de convivencia social. Estos componentes fueron elaborados o adaptados a partir de instrumentos utilizados por el Research Institute Social Cohesion (RISC, Alemania), en el contexto de una colaboración académica orientada a la utilización de herramientas comparables para el estudio de la cohesión social.</p>
-<p>El componente experimental basado en viñetas fue desarrollado mediante un trabajo conjunto entre investigadores de COES y del equipo asociado al RISC y la Universidad de Bremen. La batería de valores sociales corresponde a una adaptación de la escala de Valores Humanos Básicos de Shalom Schwartz (PVQ-21), mientras que la batería sobre ideales de convivencia social fue incorporada a partir del instrumento <em>Ideals for Living Together</em>, empleado en el Social Cohesion Panel del RISC</p>
+<p>El componente experimental basado en viñetas fue desarrollado mediante un trabajo conjunto entre investigadores de COES y del equipo asociado al RISC y la Universidad de Bremen. La batería de valores sociales corresponde a una adaptación de la escala de Valores Humanos Básicos de Shalom Schwartz (PVQ-21) (<span class="citation" data-cites="schwartz_overview_2012">Schwartz (<a href="#ref-schwartz_overview_2012" role="doc-biblioref">2012</a>)</span>) mientras que la batería sobre ideales de convivencia social fue incorporada a partir del instrumento <em>Ideals for Living Together</em>, empleado en el Social Cohesion Panel del RISC (<span class="citation" data-cites="groh-samberg_german_2024">Groh-Samberg et al. (<a href="#ref-groh-samberg_german_2024" role="doc-biblioref">2024</a>)</span>).</p>
 <p>La encuesta EDUMERCO fue realizada entre diciembre de 2024 y enero de 2025 mediante un panel en línea dirigido a personas de 18 años o más residentes en Chile. La muestra fue proporcionada por Netquest, mientras que la programación y administración del cuestionario fueron implementadas por el equipo de investigación utilizando la plataforma Formr. El diseño contempló un tamaño muestral de 3.500 casos y cobertura nacional, con cuotas de sexo, edad y nivel socioeconómico. Durante el levantamiento se incorporó además el nivel educacional como una cuota adicional. La base final disponible contiene 3.484 casos.</p>
 <p>Este manual tiene como propósito sistematizar la información metodológica asociada a EDUMERCO y proporcionar la documentación necesaria para comprender y utilizar los datos producidos por el estudio. Para ello, se organiza en las secciones <strong>Diseño, Instrumento, Implementación, Base de datos, Libro de códigos y Apéndice</strong>. Estas secciones documentan, respectivamente, las características del diseño de la encuesta, la composición y procedencia del instrumento y del componente experimental, el proceso de programación y levantamiento de los datos, la base final disponible y sus condiciones de acceso, la estructura y definición de las variables, y la información complementaria asociada al estudio.</p>
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-groh-samberg_german_2024" class="csl-entry" role="listitem">
+Groh-Samberg, Olaf, Julian B. Axenfeld, Jean-Yves Gerlitz, et al. 2024. <em>German <span>Social</span> <span>Cohesion</span> <span>Panel</span> 2021/22 – <span>Wave</span> 1: <span>Dataset</span> and <span>Documentation</span></em>. RDC-RISC, RDC-SOEP. <a href="https://doi.org/10.60532/SCP.2021_22.W1.V1">https://doi.org/10.60532/SCP.2021_22.W1.V1</a>.
+</div>
+<div id="ref-schwartz_overview_2012" class="csl-entry" role="listitem">
+Schwartz, Shalom H. 2012. <span>“An <span>Overview</span> of the <span>Schwartz</span> <span>Theory</span> of <span>Basic</span> <span>Values</span>.”</span> <em>Online Readings in Psychology and Culture</em> 2 (1). <a href="https://doi.org/10.9707/2307-0919.1116">https://doi.org/10.9707/2307-0919.1116</a>.
+</div>
+</div>
 </section>
 </section>
 
