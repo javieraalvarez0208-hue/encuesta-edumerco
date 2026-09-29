@@ -211,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Esta sección describe las principales características del diseño de EDUMERCO Adultos. Se trata de una encuesta transversal, aplicada en una única medición a población adulta residente en Chile. En esta sección se presentan la población objetivo y la población efectivamente accesible mediante el panel, las unidades de análisis, la estrategia de selección de participantes, las cuotas utilizadas durante el levantamiento y el tamaño de la muestra. También se documentan el seguimiento de las cuotas, la ausencia de procedimientos de ponderación y calibración, las principales consideraciones sobre precisión e incertidumbre y los aspectos éticos de la encuesta.</p>
 <section id="sec-target" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sec-target"><span class="header-section-number">1.1</span> Población objetivo y población de la encuesta</h2>
-<p>La población objetivo de EDUMERCO corresponde a personas de 18 años o más residentes en Chile. La encuesta fue diseñada con cobertura nacional y dirigida a población general, considerando los niveles socioeconómicos ABC1, C2, C3 y DE, de acuerdo con la clasificación AIM 2022.</p>
+<p>La población objetivo de EDUMERCO corresponde a personas de 18 años o más residentes en Chile. La encuesta fue diseñada con cobertura nacional y dirigida a población general.</p>
 <p>La población de la encuesta corresponde al subconjunto de la población objetivo accesible a través del panel en línea de Netquest durante el período de levantamiento. En consecuencia, la cobertura efectiva del estudio se encuentra delimitada por las personas pertenecientes al panel que cumplían con los criterios de elegibilidad definidos para el estudio.</p>
 </section>
 <section id="sec-units" class="level2" data-number="1.2">
@@ -227,13 +227,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="sec-quotas" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="sec-quotas"><span class="header-section-number">1.4</span> Cuotas y tamaño de la muestra</h2>
-<p>El diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas sociodemográficas. Las categorías y proporciones objetivo fueron las siguientes:</p>
-<p>El diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas de sexo, edad y nivel socioeconómico. Las categorías y proporciones objetivo fueron las siguientes:</p>
+<p>El diseño del levantamiento contempló el control de la composición de la muestra mediante cuotas de sexo y edad. Las categorías y proporciones objetivo fueron las siguientes:</p>
 <div class="cell">
 <div id="tbl-cuotas" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cuotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1.1: Cuotas muestrales de EDUMERCO
+Table&nbsp;1.1: Cuotas muestrales
 </figcaption>
 <div aria-describedby="tbl-cuotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -295,30 +294,6 @@ Table&nbsp;1.1: Cuotas muestrales de EDUMERCO
 <td style="text-align: right; width: 4em;">501</td>
 <td style="text-align: right; width: 5em;">14.3</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Nivel socioeconómico</td>
-<td style="text-align: left;">ABC1</td>
-<td style="text-align: right; width: 4em;">455</td>
-<td style="text-align: right; width: 5em;">13.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nivel socioeconómico</td>
-<td style="text-align: left;">C2</td>
-<td style="text-align: right; width: 4em;">420</td>
-<td style="text-align: right; width: 5em;">12.0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nivel socioeconómico</td>
-<td style="text-align: left;">C3</td>
-<td style="text-align: right; width: 4em;">875</td>
-<td style="text-align: right; width: 5em;">25.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nivel socioeconómico</td>
-<td style="text-align: left;">DE</td>
-<td style="text-align: right; width: 4em;">1750</td>
-<td style="text-align: right; width: 5em;">50.0</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -326,13 +301,16 @@ Table&nbsp;1.1: Cuotas muestrales de EDUMERCO
 </figure>
 </div>
 </div>
-<p>El tamaño muestral previsto para el levantamiento fue de 3.500 entrevistas. La base final disponible, correspondiente a <code>completas-280125.RData</code> contiene 3.484 casos.</p>
-<p>Durante el trabajo de campo se incorporó además el nivel educacional como una cuota adicional, cuyo cumplimiento fue objeto de seguimiento operativo.</p>
+<p><em>Notas metodológicas:</em></p>
+<ol type="1">
+<li><em>La definición de nivel socioeconómico propuesta por el proveedor no resultó operativamente clara, por lo que esta dimensión se monitoreó a partir de la variable de ingresos mensuales líquidos (<code>carac_a10</code>).</em></li>
+<li><em>Durante el trabajo de campo se incorporó el nivel educacional como cuota adicional, cuyo cumplimiento fue objeto de seguimiento operativo.</em></li>
+</ol>
 </section>
 <section id="alcance-del-control-de-cuotas" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="alcance-del-control-de-cuotas"><span class="header-section-number">1.5</span> Alcance del control de cuotas</h2>
 <p>Durante el levantamiento se realizó un seguimiento de las cuotas mediante el registro de los casos acumulados y de los casos faltantes para cada categoría. Esta información era reportada a Netquest para orientar el cierre de las cuotas durante el trabajo de campo.</p>
-<p>Además, en el procesamiento de la base se revisó la distribución de los casos según sexo, edad, nivel educacional y nivel socioeconómico mediante el cálculo de frecuencias.</p>
+<p>El seguimiento cubrió las cuotas de sexo, edad y nivel educacional. Adicionalmente, se revisó el nivel socioeconómico a partir de la variable de ingresos mensuales líquidos (<code>carac_a10</code>). La distribución final de los casos según estas dimensiones se revisó mediante el cálculo de frecuencias en el procesamiento de la base.</p>
 </section>
 <section id="sec-weighting" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="sec-weighting"><span class="header-section-number">1.6</span> Ponderación y calibración</h2>
